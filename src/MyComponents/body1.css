@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.bodymain {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bodytext {
+  width: 600px;
+}
+.bodytext p{
+  padding-left: 20px;
+}
+
+.myimg {
+  width: 600px;
+}
+
+.bodymyimg img {
+  border: solid red 2px;
+  margin-top: 30px;
+  height: 400px;
+  width: 600px;
+
+}
+
+@media (max-width:768px) {
+  .bodymain {
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .bodymyimg img {
+    height: 250px;
+    width: 100%;
+  }
+
+
+
+
+}

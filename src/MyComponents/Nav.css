@@ -1,0 +1,102 @@
+/* .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+
+    
+}
+
+.dropdown-menu {
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgb(49, 49, 177);
+    color: white;
+
+}
+
+.bg-body-white {
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+
+
+
+
+.dropdown-item {
+    color: rgb(253, 253, 253);
+    background-color: rgb(49, 49, 177);
+
+}
+
+.dropdown-item:hover {
+    color: orangered;
+    background-color: rgb(49, 49, 177);
+
+}
+
+.navdiv {
+    width: 100%;
+    display: flex;
+  
+    justify-content: space-around;
+}
+
+.navbar-toggler {
+
+    position: relative;
+    z-index: 10;
+   
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-collapse {
+    transition: max-height 0.20s ease-in-out;
+  
+    overflow: hidden;
+    max-height: 0;
+}
+
+
+.navbar-collapse.show {
+    max-height: 500px;
+   
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+    .image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+    }
+
+
+
+    .togglerbutton {
+        padding-left: 40px;
+    }
+
+}
+
+li .active{
+    color: red;
+} */

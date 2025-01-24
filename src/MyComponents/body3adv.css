@@ -1,0 +1,66 @@
+.maindiv {
+  background-image: url('/Users/ramrajput/Documents/React Projects/bsspa/public/images/body3bg.jpg');
+
+  padding: 10px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-size: cover;
+  background-position: center;
+  height: fit-content;
+
+}
+
+.mybtn {
+  height: fit-content;
+  color: rgb(255, 254, 254);
+  background-color: #03438f;
+}
+
+.mybtn:hover {
+  background-color: #f57d28;
+  color: aliceblue;
+}
+
+.body3row1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mytextdiv {
+  height: 300px;
+  width: 300px;
+  border: solid whitesmoke 1px;
+  margin: 10px;
+  color: white;
+  padding: 20px;
+}
+
+.body3col1 h2 {
+  color: #fdfdfd;
+}
+
+.mytextdiv:hover {
+  background-color: #03438f;
+  color: #fdfdfd;
+
+
+}
+
+.icon {
+  font-size: 50px;
+  color: #fdfdfd;
+}
+
+.mytextdiv:hover .icon {
+
+  color: #f57d28;
+
+}
+
+@media (max-width:768px) {
+  .body3row1 {
+    flex-wrap: wrap;
+  }
+
+}

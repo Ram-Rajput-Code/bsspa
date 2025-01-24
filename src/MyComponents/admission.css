@@ -1,0 +1,37 @@
+.admissionbox0 {
+  position: absolute;
+  height: fit-content;
+}
+
+.admissionrow1 {
+  position: relative;
+}
+
+.admissionbox1 {
+  position: absolute;
+  top: 120px;
+
+}
+
+@media (max-width:768px) {
+  .admissionrow1 {
+    position: relative;
+
+  }
+
+  .admissionbox1 {
+    position: absolute;
+    width: 100%;
+    top: 120px;
+
+  }
+
+  .admissionbox0 {
+    width: 100%;
+  }
+
+  .admissionbox0 h3 {
+    font-size: small;
+  }
+
+}
