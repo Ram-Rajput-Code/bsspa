@@ -1,4 +1,5 @@
 import React from 'react'
+import GalleryImages from './galleryPage/galleryComponents/GallaryImages';
 
 const Gallery = () => {
   return (
@@ -61,6 +62,7 @@ const Gallery = () => {
           />
         </div>
       </div>
+      <GalleryImages/>
     </div>
 
 

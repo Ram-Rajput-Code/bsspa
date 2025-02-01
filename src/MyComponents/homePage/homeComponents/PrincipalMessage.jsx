@@ -21,7 +21,7 @@ const principalMessages = [
       "But as Einstein said, 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything'. So the aim of BSS Pranavananda Academy is not only to build a man of success but a man of wisdom, who knows to owe his forefathers for giving such a magnificent world. He understands the true meaning of being human. As we believe, they can and they will create a perfect ideal world. ",
     message3: "Tomorrow - better than today.",
     principal: "Dr. A. P. Sharma",
-    image: "images/slider1.jpg", // Replace with actual image URL
+    image: "images/principal-desk.jpg", // Replace with actual image URL
   },
 ];
 
@@ -33,12 +33,12 @@ const PrincipalMessage = () => {
           <CardContent>
             <Grid container spacing={3} alignItems="center">
               {/* Left Side - Image */}
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} display={"flex"} justifyContent={"center"}>
                 <img
                   src={item.image}
                   alt="Principal"
                   className="img-fluid rounded"
-                  style={{ width: "100%", height: "auto" }}
+                  style={{ width: "60%", height: "auto", border: "1px solid white"}}
                 />
               </Grid>
 

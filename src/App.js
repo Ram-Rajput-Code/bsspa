@@ -1,10 +1,6 @@
 import "./App.css";
 import Footer from "./MyComponents/Footer.jsx";
 
-import Nav from "./MyComponents/Nav.jsx";
-import NavOne from "./MyComponents/NavOne.jsx";
-// import NavThree from './MyComponents/NavThree.jsx';
-
 import About from "./MyComponents/About.jsx";
 
 import Contact from "./MyComponents/Contact.jsx";
@@ -16,14 +12,16 @@ import Activities from "./MyComponents/Activities.jsx";
 import Facilities from "./MyComponents/Facilities.jsx";
 import Test from "./MyComponents/Test.jsx";
 import HomePage from "./MyComponents/homePage/HomePage.jsx";
+import NavBar from "./MyComponents/navBar/NavBar.jsx";
+
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: (
       <>
-        <NavOne />
-        <Nav />
+        <NavBar/>
         <HomePage />
         <Footer />
       </>
@@ -33,9 +31,7 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+       <NavBar/>
         <About />
         <Footer />
       </>
@@ -45,9 +41,7 @@ const router = createBrowserRouter([
     path: "/contact",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+        <NavBar/>
         <Contact />
         <Footer />
       </>
@@ -57,9 +51,7 @@ const router = createBrowserRouter([
     path: "/gallery",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+        <NavBar/>
         <Gallery />
         <Footer />
       </>
@@ -69,9 +61,7 @@ const router = createBrowserRouter([
     path: "/admission",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+        <NavBar/>
         <Admission />
         <Footer />
       </>
@@ -81,9 +71,7 @@ const router = createBrowserRouter([
     path: "/activities",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+       <NavBar/>
         <Activities />
         <Footer />
       </>
@@ -93,9 +81,7 @@ const router = createBrowserRouter([
     path: "/facilities",
     element: (
       <>
-        <NavOne />
-        <Nav />
-        {/* <NavThree /> */}
+        <NavBar/>
         <Facilities />
         <Footer />
       </>

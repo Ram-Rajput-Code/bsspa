@@ -29,7 +29,7 @@ export default function WelcomeMessage() {
             <Typography variant="h5" align="center" fontWeight="bold">
               Welcome to
             </Typography>
-            <Typography variant="h4" color="primary" fontWeight="bold">
+            <Typography variant="h4" align="center" color="primary" fontWeight="bold">
               Bharat Sevashram Sangha Pranavananda Academy
             </Typography>
             <Typography variant="body1" paragraph>
