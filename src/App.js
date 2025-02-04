@@ -7,11 +7,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Gallery from "./MyComponents/Gallery.jsx";
 import Admission from "./MyComponents/Admission.jsx";
 import Activities from "./MyComponents/Activities.jsx";
-import Facilities from "./MyComponents/Facilities.jsx";
 import Test from "./MyComponents/Test.jsx";
 import HomePage from "./MyComponents/homePage/HomePage.jsx";
 import NavBar from "./MyComponents/navBar/NavBar.jsx";
 import AboutPage from "./MyComponents/aboutPage/AboutPage.jsx";
+import FacilitiesPage from "./MyComponents/facilitiesPage/FacilitiesPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,6 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <>
-        <NavBar />
         <AboutPage />
         <Footer />
       </>
@@ -78,11 +77,24 @@ const router = createBrowserRouter([
     path: "/facilities",
     element: (
       <>
-        <NavBar />
-        <Facilities />
-        <Footer />
+       
+        <FacilitiesPage />
+        
       </>
     ),
+  },
+
+  {
+    path: "/facilities/faculties",
+    element: <FacilitiesPage />,
+  },
+  {
+    path: "/facilities/infrastructure",
+    element: <FacilitiesPage />,
+  },
+  {
+    path: "/facilities/praxis",
+    element: <FacilitiesPage />,
   },
 
   {

@@ -17,7 +17,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const Nav = () => {
+const NavBar = ({
+  aboutBannerRef,
+  aboutSchoolRef,
+  founderBSSPARef,
+  founderSchoolRef,
+  secretaryMessageRef,
+  principalMessageRef,
+  membersRef,
+  visionMissionRef,
+  tenDevineMessageRef,
+}) => {
+  const scrollToSection = (sectionRef) => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+  };
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [anchorElAbout, setAnchorElAbout] = useState(null);
   const [anchorElFacilities, setAnchorElFacilities] = useState(null);
@@ -59,7 +72,7 @@ const Nav = () => {
       <Container>
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1 }}>
-            <img src="./images/logo.png" alt="404" width="250px" />
+            <img src="/images/logo.png" alt="404" width="250px" />
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Box sx={{ display: "flex", gap: 2 }}>
@@ -104,20 +117,83 @@ const Nav = () => {
                   <NavLink
                     to="/about"
                     className="nav-link"
-                    style={({ isActive }) => ({
-                      color: isActive ? "orange" : "inherit",
+                    style={{
+                      color: "inherit",
                       textDecoration: "none",
                       padding: "5px",
-                    })}
+                    }}
+                    onClick={() => scrollToSection(aboutSchoolRef)}
                   >
                     {" "}
                     <MenuItem onClick={handleMenuClose}>About School</MenuItem>
                   </NavLink>
-                  <MenuItem onClick={handleMenuClose}>Founder of BSS</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Founder of School </MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Secretary Message</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Principal Message</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Members</MenuItem>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(founderBSSPARef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Founder of BSS
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(founderSchoolRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Founder of School
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(secretaryMessageRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Secretary Message
+                    </MenuItem>
+                  </NavLink>
+
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(principalMessageRef)}
+                  >
+                    <MenuItem>Principal Message</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(membersRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>Members</MenuItem>{" "}
+                  </NavLink>
                 </Menu>
               </div>
 
@@ -146,9 +222,41 @@ const Nav = () => {
                     onMouseLeave: handleMenuClose,
                   }}
                 >
-                  <MenuItem onClick={handleMenuClose}>Faculties</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Infrastructures and Facilities</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Our Praxis</MenuItem>
+                  <NavLink
+                    to="/facilities/faculties"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>Faculties</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/facilities/infrastructure"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Infrastructures and Facilities
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/facilities/praxis"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>Our Praxis</MenuItem>
+                  </NavLink>
                 </Menu>
               </div>
 
@@ -178,11 +286,19 @@ const Nav = () => {
                   }}
                 >
                   <MenuItem onClick={handleMenuClose}>Academic</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Procedure and Withdrawal</MenuItem>
+                  <MenuItem onClick={handleMenuClose}>
+                    Procedure and Withdrawal
+                  </MenuItem>
                   <MenuItem onClick={handleMenuClose}>School Rules</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Fees Deposition Rules</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Reg. Form Class 9 and 11</MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Reg. Form Class 10 and 12</MenuItem>                  
+                  <MenuItem onClick={handleMenuClose}>
+                    Fees Deposition Rules
+                  </MenuItem>
+                  <MenuItem onClick={handleMenuClose}>
+                    Reg. Form Class 9 and 11
+                  </MenuItem>
+                  <MenuItem onClick={handleMenuClose}>
+                    Reg. Form Class 10 and 12
+                  </MenuItem>
                   <MenuItem onClick={handleMenuClose}>Student Details</MenuItem>
                 </Menu>
               </div>
@@ -439,4 +555,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavBar;

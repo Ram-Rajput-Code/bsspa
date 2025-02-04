@@ -6,6 +6,7 @@ import VisionMission from "./homeComponents/VisionMission";
 import SessionAdmission from "./homeComponents/SessionAdmission";
 import PrincipalMessage from "./homeComponents/PrincipalMessage";
 
+
 const HomePage = () => {
   return (
     <div>

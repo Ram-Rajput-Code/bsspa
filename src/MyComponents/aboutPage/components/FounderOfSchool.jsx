@@ -2,7 +2,6 @@ import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Grid, Typography } from "@mui/material";
-import { Col, Row } from "react-bootstrap";
 
 const data = {
   title: "SWAMI BUDHANANDA JI MAHARAJ (FOUNDER OF SCHOOL)",

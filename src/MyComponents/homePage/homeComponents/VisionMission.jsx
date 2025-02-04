@@ -1,9 +1,8 @@
 import React from "react";
 import "./VisionMission.css";
-import { ImBrightnessContrast } from "react-icons/im";
 import { MdOutlineMonitor } from "react-icons/md";
 import { FaHeartCircleCheck } from "react-icons/fa6";
-import { MdSportsHandball } from "react-icons/md";
+
 
 export default function VisionMission() {
   return (
