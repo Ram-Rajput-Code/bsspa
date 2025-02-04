@@ -17,6 +17,11 @@ export default function NavOne() {
           </Box>
         </Col>
         <Col className="d-flex justify-content-end">
+          <Link to="/MandatoryDisclosure" className="text-white text-decoration-none mx-2">
+            <Button variant="link" className="text-white">
+            Mandatory Disclosure
+            </Button>
+          </Link>
           <Link to="/gallery" className="text-white text-decoration-none mx-2">
             <Button variant="link" className="text-white">
               Gallery

@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+.css-1oc6jaz-MuiPaper-root-MuiAccordion-root::before {
+ 
+  height: 0px !important;
+}

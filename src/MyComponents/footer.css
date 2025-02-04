@@ -9,13 +9,11 @@
   color: rgb(224, 132, 40);
   margin-top: 20px;
   font-size: x-large;
-
 }
 
 .footerrow1 {
   display: flex;
   justify-content: space-between;
-
 }
 
 ul {
@@ -30,15 +28,19 @@ ul li span {
   color: #ff9100;
 }
 
+
 .footerlogo {
-  padding: 20px;
-
-
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-family: 'Algerian', sans-serif;
+}
+.footerlogo img {
+  height: 70px;
 }
 
 .footerlogo h2 {
   color: white;
-
 }
 
 a {
@@ -46,8 +48,7 @@ a {
   text-decoration: none;
 }
 
-
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .footerrow1 {
     flex-wrap: wrap;
     gap: 10px;
@@ -62,7 +63,6 @@ a {
 
   .footerlogo h2 {
     color: white;
-
   }
 
   .footericon {
@@ -79,7 +79,6 @@ a {
     padding: 0;
     margin: 0;
     text-align: left;
-
   }
 
   ro .footerlinks li span {
@@ -90,6 +89,4 @@ a {
   }
 }
 
-.footerlogo img{
-  height: 100px;
-}
+

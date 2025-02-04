@@ -1,8 +1,6 @@
 import "./App.css";
 import Footer from "./MyComponents/Footer.jsx";
 
-import About from "./MyComponents/About.jsx";
-
 import Contact from "./MyComponents/Contact.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -13,15 +11,14 @@ import Facilities from "./MyComponents/Facilities.jsx";
 import Test from "./MyComponents/Test.jsx";
 import HomePage from "./MyComponents/homePage/HomePage.jsx";
 import NavBar from "./MyComponents/navBar/NavBar.jsx";
-
+import AboutPage from "./MyComponents/aboutPage/AboutPage.jsx";
 
 const router = createBrowserRouter([
-  
   {
     path: "/",
     element: (
       <>
-        <NavBar/>
+        <NavBar />
         <HomePage />
         <Footer />
       </>
@@ -31,8 +28,8 @@ const router = createBrowserRouter([
     path: "/about",
     element: (
       <>
-       <NavBar/>
-        <About />
+        <NavBar />
+        <AboutPage />
         <Footer />
       </>
     ),
@@ -41,7 +38,7 @@ const router = createBrowserRouter([
     path: "/contact",
     element: (
       <>
-        <NavBar/>
+        <NavBar />
         <Contact />
         <Footer />
       </>
@@ -51,7 +48,7 @@ const router = createBrowserRouter([
     path: "/gallery",
     element: (
       <>
-        <NavBar/>
+        <NavBar />
         <Gallery />
         <Footer />
       </>
@@ -61,7 +58,7 @@ const router = createBrowserRouter([
     path: "/admission",
     element: (
       <>
-        <NavBar/>
+        <NavBar />
         <Admission />
         <Footer />
       </>
@@ -71,7 +68,7 @@ const router = createBrowserRouter([
     path: "/activities",
     element: (
       <>
-       <NavBar/>
+        <NavBar />
         <Activities />
         <Footer />
       </>
@@ -81,7 +78,7 @@ const router = createBrowserRouter([
     path: "/facilities",
     element: (
       <>
-        <NavBar/>
+        <NavBar />
         <Facilities />
         <Footer />
       </>

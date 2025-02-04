@@ -6,7 +6,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function WelcomeMessage() {
-  const text = `Parnavananda Academy, run by Bharat Sevashram Sangha, with its diversified academic activities 
+  const text = `Pranavananda Academy, run by Bharat Sevashram Sangha, with its diversified academic activities 
   in various parts of the country, has come into existence in Raipur, commemorating the Centenary Celebrations 
   of Swami Pranavanandaji Maharaj. At present, the school stands on a 5-acre plot of land donated by Shishu 
   Shiksha Samiti by virtue of the relentless efforts of a devotee of “Bharat Sevashram Sangha,” located on VIP Road 

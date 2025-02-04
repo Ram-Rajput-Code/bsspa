@@ -32,7 +32,8 @@ export default function Slider() {
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="3000">
           <img
-            src="/images/sliderimg1.png"
+           
+            src="/images/sliderimg3.jpg"
             className="d-block w-100"
             alt="Slide 1"
             height={"100%"}
@@ -56,7 +57,7 @@ export default function Slider() {
         </div>
         <div className="carousel-item" data-bs-interval="3000">
           <img
-            src="/images/sliderimg3.jpg"
+             src="/images/sliderimg1.png"
             className="d-block w-100"
             alt="Slide 3"
             height={"100%"}
