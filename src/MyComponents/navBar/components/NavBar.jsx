@@ -285,21 +285,106 @@ const NavBar = ({
                     onMouseLeave: handleMenuClose,
                   }}
                 >
-                  <MenuItem onClick={handleMenuClose}>Academic</MenuItem>
+                  <NavLink
+                  to="/admission/academic"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
+                  <MenuItem onClick={handleMenuClose}>Academic</MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/admission-procedure"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
                   <MenuItem onClick={handleMenuClose}>
                     Procedure and Withdrawal
-                  </MenuItem>
-                  <MenuItem onClick={handleMenuClose}>School Rules</MenuItem>
+                  </MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/school-rules"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
+                  <MenuItem onClick={handleMenuClose}>School Rules</MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/guideline-to-parent"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
+                  <MenuItem onClick={handleMenuClose}>Guideline To Parent</MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/fees-deposition-rules"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
                   <MenuItem onClick={handleMenuClose}>
                     Fees Deposition Rules
-                  </MenuItem>
+                  </MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/students-tc-list"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
+                  <MenuItem onClick={handleMenuClose}>
+                  TC Issued
+                  </MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/reg-form9and11"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
                   <MenuItem onClick={handleMenuClose}>
                     Reg. Form Class 9 and 11
-                  </MenuItem>
+                  </MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/reg-form10and12"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
                   <MenuItem onClick={handleMenuClose}>
                     Reg. Form Class 10 and 12
-                  </MenuItem>
-                  <MenuItem onClick={handleMenuClose}>Student Details</MenuItem>
+                  </MenuItem></NavLink>
+                  <NavLink
+                  to="/admission/students-list"
+                  className="nav-link"
+                  style={({ isActive }) => ({
+                    color: isActive ? "orange" : "inherit",
+                    textDecoration: "none",
+                    padding: "5px",
+                  })}
+                >
+                  <MenuItem onClick={handleMenuClose}>Student Details</MenuItem></NavLink>
                 </Menu>
               </div>
 

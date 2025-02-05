@@ -5,13 +5,14 @@ import Contact from "./MyComponents/Contact.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Gallery from "./MyComponents/Gallery.jsx";
-import Admission from "./MyComponents/Admission.jsx";
 import Activities from "./MyComponents/Activities.jsx";
 import Test from "./MyComponents/Test.jsx";
 import HomePage from "./MyComponents/homePage/HomePage.jsx";
 import NavBar from "./MyComponents/navBar/NavBar.jsx";
 import AboutPage from "./MyComponents/aboutPage/AboutPage.jsx";
 import FacilitiesPage from "./MyComponents/facilitiesPage/FacilitiesPage.jsx";
+import AdmissionPage from "./MyComponents/admissionPage/AdmissionPage.jsx";
+import PageNotFound from "./MyComponents/PageNotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,16 +54,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/admission",
-    element: (
-      <>
-        <NavBar />
-        <Admission />
-        <Footer />
-      </>
-    ),
-  },
+
   {
     path: "/activities",
     element: (
@@ -73,13 +65,56 @@ const router = createBrowserRouter([
       </>
     ),
   },
+
+  {
+    path: "/admission",
+    element: (
+      <>
+        <AdmissionPage />
+      </>
+    ),
+  },
+  {
+    path: "/admission/academic",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/admission-procedure",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/school-rules",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/guideline-to-parent",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/fees-deposition-rules",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/students-tc-list",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/reg-form9and11",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/reg-form10and12",
+    element: <AdmissionPage />,
+  },
+  {
+    path: "/admission/students-list",
+    element: <AdmissionPage />,
+  },
   {
     path: "/facilities",
     element: (
       <>
-       
         <FacilitiesPage />
-        
       </>
     ),
   },
@@ -102,6 +137,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <Test />
+      </>
+    ),
+  },
+  {
+    path: "*",
+    element: (
+      <>
+        <PageNotFound />
       </>
     ),
   },
