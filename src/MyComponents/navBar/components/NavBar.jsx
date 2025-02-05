@@ -286,105 +286,116 @@ const NavBar = ({
                   }}
                 >
                   <NavLink
-                  to="/admission/academic"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>Academic</MenuItem></NavLink>
+                    to="/admission/academic"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>Academic</MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/admission-procedure"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>
-                    Procedure and Withdrawal
-                  </MenuItem></NavLink>
+                    to="/admission/admission-procedure"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Procedure and Withdrawal
+                    </MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/school-rules"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>School Rules</MenuItem></NavLink>
+                    to="/admission/school-rules"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>School Rules</MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/guideline-to-parent"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>Guideline To Parent</MenuItem></NavLink>
+                    to="/admission/guideline-to-parent"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Guideline To Parent
+                    </MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/fees-deposition-rules"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>
-                    Fees Deposition Rules
-                  </MenuItem></NavLink>
+                    to="/admission/fees-deposition-rules"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Fees Deposition Rules
+                    </MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/students-tc-list"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>
-                  TC Issued
-                  </MenuItem></NavLink>
+                    to="/admission/students-tc-list"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>TC Issued</MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/reg-form9and11"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>
-                    Reg. Form Class 9 and 11
-                  </MenuItem></NavLink>
+                    to="/admission/reg-form9and11"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Reg. Form Class 9 and 11
+                    </MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/reg-form10and12"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>
-                    Reg. Form Class 10 and 12
-                  </MenuItem></NavLink>
+                    to="/admission/reg-form10and12"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Reg. Form Class 10 and 12
+                    </MenuItem>
+                  </NavLink>
                   <NavLink
-                  to="/admission/students-list"
-                  className="nav-link"
-                  style={({ isActive }) => ({
-                    color: isActive ? "orange" : "inherit",
-                    textDecoration: "none",
-                    padding: "5px",
-                  })}
-                >
-                  <MenuItem onClick={handleMenuClose}>Student Details</MenuItem></NavLink>
+                    to="/admission/students-list"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Student Details
+                    </MenuItem>
+                  </NavLink>
                 </Menu>
               </div>
 
@@ -434,7 +445,7 @@ const NavBar = ({
         sx={{
           "& .MuiDrawer-paper": {
             backgroundColor: "rgba(0, 0, 0, 0.3)", // Transparent dark background
-            width: "250px",
+            width: "300px",
             color: "white", // White text inside drawer
           },
         }}
@@ -464,45 +475,87 @@ const NavBar = ({
           </ListItem>
           {isAboutOpen && (
             <List sx={{ position: "relative", left: "50px" }}>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/about"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
+              <NavLink
+                to="/about"
+                className="nav-link"
+                style={{
+                  color: "inherit",
+                  textDecoration: "none",
+                  padding: "5px",
+                }}
+                onClick={() => scrollToSection(aboutSchoolRef)}
+              >
+                <ListItem button onClick={closeMenu}>
                   About School
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/about#team"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Team
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/about#careers"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Careers
-                </NavLink>
-              </ListItem>
+                </ListItem>
+              </NavLink>
+              <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(founderBSSPARef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Founder of BSS
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(founderSchoolRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Founder of School
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(secretaryMessageRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>
+                      Secretary Message
+                    </MenuItem>
+                  </NavLink>
+
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(principalMessageRef)}
+                  >
+                    <MenuItem>Principal Message</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-link"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    }}
+                    onClick={() => scrollToSection(membersRef)}
+                  >
+                    <MenuItem onClick={handleMenuClose}>Members</MenuItem>{" "}
+                  </NavLink>
             </List>
           )}
 
@@ -515,45 +568,41 @@ const NavBar = ({
           </ListItem>
           {isFacilitiesOpen && (
             <List sx={{ position: "relative", left: "50px" }}>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/facilities#library"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Library
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/facilities#sports"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Sports
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/facilities#lab"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Lab
-                </NavLink>
-              </ListItem>
+              <NavLink
+                    to="/facilities/faculties"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>Faculties</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/facilities/infrastructure"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Infrastructures and Facilities
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/facilities/praxis"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>Our Praxis</MenuItem>
+                  </NavLink>
             </List>
           )}
 
@@ -566,45 +615,121 @@ const NavBar = ({
           </ListItem>
           {isAdmissionOpen && (
             <List sx={{ position: "relative", left: "50px" }}>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/admission#process"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Process
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/admission#requirements"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Requirements
-                </NavLink>
-              </ListItem>
-              <ListItem button onClick={closeMenu}>
-                <NavLink
-                  to="/admission#fees"
-                  className="nav-link"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "5px",
-                  }}
-                >
-                  Fees
-                </NavLink>
-              </ListItem>
+              
+                
+                 
+                  <NavLink
+                    to="/admission/academic"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>Academic</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/admission-procedure"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Procedure and Withdrawal
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/school-rules"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>School Rules</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/guideline-to-parent"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Guideline To Parent
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/fees-deposition-rules"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Fees Deposition Rules
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/students-tc-list"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>TC Issued</MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/reg-form9and11"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Reg. Form Class 9 and 11
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/reg-form10and12"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Reg. Form Class 10 and 12
+                    </MenuItem>
+                  </NavLink>
+                  <NavLink
+                    to="/admission/students-list"
+                    className="nav-link"
+                    style={({ isActive }) => ({
+                      color: isActive ? "orange" : "inherit",
+                      textDecoration: "none",
+                      padding: "5px",
+                    })}
+                  >
+                    <MenuItem onClick={closeMenu}>
+                      Student Details
+                    </MenuItem>
+                  </NavLink>
+               
             </List>
           )}
 
