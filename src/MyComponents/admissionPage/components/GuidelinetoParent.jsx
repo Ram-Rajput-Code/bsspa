@@ -32,7 +32,7 @@ const GuidelinetoParents = () => {
           </h4>
           <ul className="list-group list-group-flush">
             {recommendations.map((rec, index) => (
-              <li key={index} className="list-group-item text-warning">
+              <li key={index} className="list-group-item">
                 {index + 1}. {rec}
               </li>
             ))}

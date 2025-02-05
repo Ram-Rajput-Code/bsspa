@@ -17,14 +17,14 @@ const formData = [
     formName: "ANNUAL EXAMINATION 2020-21",
     downloadLink: "/forms/annual_exam_2020_21.pdf",
   },
-  { id: 2, formName: "tc001", downloadLink: "/forms/tc001.pdf" },
+  // { id: 2, formName: "tc001", downloadLink: "/forms/tc001.pdf" },
   {
-    id: 3,
+    id: 2,
     formName: "SCIENCE OLYMPIAD FOUNDATION RESULT",
     downloadLink: "/forms/science_olympiad_result.pdf",
   },
   {
-    id: 4,
+    id: 3,
     formName: "CCE ACTIVITY RESULT 2016-17",
     downloadLink: "/forms/cce_activity_result_2016_17.pdf",
   },

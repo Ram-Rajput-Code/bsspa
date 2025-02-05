@@ -1,3 +1,10 @@
+.myclass {
+
+  display: flex; 
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center;
+}
 .contactrow1 {
   width: 100%;
   display: flex;
@@ -6,15 +13,13 @@
 
 .contactform {
   width: 45%;
-
 }
 
 .contactaddress {
   width: 45%;
 }
 
-@media (max-width:768px) {
-
+@media (max-width: 768px) {
   .contactrow1 {
     width: 380px;
     flex-wrap: wrap;
@@ -23,8 +28,6 @@
 
   .contactform {
     width: 380px;
-
-
   }
 
   .contactaddress {

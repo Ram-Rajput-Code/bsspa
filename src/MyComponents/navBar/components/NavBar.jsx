@@ -411,8 +411,9 @@ const NavBar = ({
               >
                 Activities
               </NavLink>
+              
               <NavLink
-                to="/scolastic"
+                to="/gallery"
                 className="nav-link"
                 style={({ isActive }) => ({
                   color: isActive ? "orange" : "inherit",
@@ -420,7 +421,18 @@ const NavBar = ({
                   padding: "5px",
                 })}
               >
-                Scolastic & CO-Scolastic
+               Gallery
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className="nav-link"
+                style={({ isActive }) => ({
+                  color: isActive ? "orange" : "inherit",
+                  textDecoration: "none",
+                  padding: "5px",
+                })}
+              >
+                Contact
               </NavLink>
             </Box>
           </Box>
@@ -748,7 +760,7 @@ const NavBar = ({
           </ListItem>
           <ListItem button onClick={closeMenu}>
             <NavLink
-              to="/scolastic"
+              to="/gallery"
               className="nav-link"
               style={{
                 color: "white",
@@ -756,7 +768,20 @@ const NavBar = ({
                 padding: "5px",
               }}
             >
-              Scolastic & CO-Scolastic
+              Gallery
+            </NavLink>
+          </ListItem>
+          <ListItem button onClick={closeMenu}>
+            <NavLink
+              to="/contact"
+              className="nav-link"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "5px",
+              }}
+            >
+              Contact
             </NavLink>
           </ListItem>
         </List>

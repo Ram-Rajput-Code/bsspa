@@ -6,17 +6,17 @@ const Contact = () => {
 
     <>
 
-      <div class="main-content" style={{ backgroundColor: 'whitesmoke' }}>
+      <div className='myclass' style={{ backgroundColor: 'whitesmoke'}}>
         <hr />
 
-        <div className="row">
-          <div className="col-12">
-            <img src="/images/principal-message-banner.jpg" alt="" width={'100%'} />
+        <div className="row" style={{width:"100%"}}>
+          <div className="col-12" style={{padding:"0"}}>
+            <img src="/images/principal-message-banner.jpg" alt="" width={'100%'}  />
           </div>
         </div>
-        <div class="row">
+        <div class="row" style={{width:"100%"}}>
 
-          <h1 align="center" class="ui-title-page" >
+          <h1 align="center" class="ui-title-page" style={{padding:"0"}}>
             Contact Us
           </h1>
           <br />

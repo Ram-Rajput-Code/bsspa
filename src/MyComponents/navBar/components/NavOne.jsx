@@ -51,16 +51,7 @@ export default function NavOne() {
                   Mandatory Disclosure
                 </Button>
               </Link>
-              <Link to="/gallery" className="text-white text-decoration-none">
-                <Button variant="link" className="text-white">
-                  Gallery
-                </Button>
-              </Link>
-              <Link to="/contact" className="text-white text-decoration-none">
-                <Button variant="link" className="text-white">
-                  Contact Us
-                </Button>
-              </Link>
+              
             </Stack>
           </Col>
         </Row>
