@@ -12,6 +12,7 @@ import StudentsTCList from "./components/StudentsTCList";
 import RegForm9and11 from "./components/RegForm9and11";
 import RegForm10and12 from "./components/RegForm10and12";
 import StudentsList from "./components/StudentsList";
+import BannerAdmissionPage from "./components/BannerAdmissionPage";
 
 const AdmissionPage = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const AdmissionPage = () => {
   return (
     <>
       <NavBar />
-
+      <BannerAdmissionPage />
       {/* Render components based on the URL */}
       {path.includes("academic") && <Academic />}
       {path.includes("admission-procedure") && <AdmissionProcedure />}
@@ -31,7 +32,6 @@ const AdmissionPage = () => {
       {path.includes("reg-form9and11") && <RegForm9and11 />}
       {path.includes("reg-form10and12") && <RegForm10and12 />}
       {path.includes("students-list") && <StudentsList />}
-
 
       <Footer />
     </>
