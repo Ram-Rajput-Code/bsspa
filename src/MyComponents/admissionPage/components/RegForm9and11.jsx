@@ -1,282 +1,211 @@
 import React, { useState } from "react";
-import {
-  Grid,
-  TextField,
-  MenuItem,
-  Button,
-  FormControl,
-  InputLabel,
-  Select,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  Box,
-} from "@mui/material";
+import { jsPDF } from "jspdf";
+import FormInstruction from "./FormInstruction";
+import { Grid, TextField, MenuItem, Button, Paper } from "@mui/material";
+import { Start } from "@mui/icons-material";
 
 const RegForm9and11 = () => {
   const [formData, setFormData] = useState({
-    candidateName: "",
-    motherName: "",
-    fatherName: "",
+    class: "",
+    section: "",
+    candidatename: "",
+    mothername: "",
+    fathername: "",
     gender: "",
     cast: "",
     religion: "",
-    subjects: ["", "", "", ""],
-    annualIncome: "",
-    dateOfBirth: "",
-    admissionSerialNo: "",
-    dateOfAdmission: "",
-    minority: "",
-    aadharNo: "",
-    bankAccNo: "",
-    ifscCode: "",
-    bankName: "",
-    mathOption: "",
-    contactDetails: {
-      studentMobile: "",
-      studentEmail: "",
-      fatherMobile: "",
-      fatherEmail: "",
-      motherMobile: "",
-      motherEmail: "",
-      guardianMobile: "",
-      guardianEmail: "",
-    },
-    occupation: {
-      fatherOccupation: "",
-      motherOccupation: "",
-      guardianOccupation: "",
-    },
-    siblings: [
-      { name: "", class: "" },
-      { name: "", class: "" },
-      { name: "", class: "" },
-    ],
-    documents: {
-      marksheet: null,
-      casteCertificate: null,
-      photo: null,
-    },
+    disabilities: "",
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    if (name.startsWith("contactDetails")) {
-      const contactKey = name.split(".")[1];
-      setFormData({
-        ...formData,
-        contactDetails: { ...formData.contactDetails, [contactKey]: value },
-      });
-    } else if (name.startsWith("occupation")) {
-      const occupationKey = name.split(".")[1];
-      setFormData({
-        ...formData,
-        occupation: { ...formData.occupation, [occupationKey]: value },
-      });
-    } else if (name.startsWith("siblings")) {
-      const siblingIndex = name.split(".")[1];
-      const siblingKey = name.split(".")[2];
-      const newSiblings = [...formData.siblings];
-      newSiblings[siblingIndex][siblingKey] = value;
-      setFormData({
-        ...formData,
-        siblings: newSiblings,
-      });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
-
-  const handleSubjectChange = (index, value) => {
-    const newSubjects = [...formData.subjects];
-    newSubjects[index] = value;
-    setFormData({ ...formData, subjects: newSubjects });
-  };
-
-  const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData({
-      ...formData,
-      documents: { ...formData.documents, [name]: files[0] },
-    });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you can implement form validation and submission logic.
-    alert("Form Submitted Successfully!");
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.width;
+    // Horizontal line
+    doc.line(10, 22, pageWidth - 10, 22);
+    doc.text(".....Receipt....", 100, 20);
+    doc.text(`Class: ${formData.class}`, 20, 30);
+    doc.text(`Section: ${formData.section}`, 100, 30);
+    doc.text(`Candidate's Name: ${formData.candidatename}`, 20, 40);
+    doc.text(`Mother's Name: ${formData.mothername}`, 20, 50);
+    doc.text(`Father's Name: ${formData.fathername}`, 20, 60);
+    doc.text(`Gender: ${formData.gender}`, 20, 70);
+    doc.text(`Cast: ${formData.cast}`, 20, 80);
+    doc.text(`Religion: ${formData.religion}`, 20, 90);
+    doc.text(`Disabilities: ${formData.disabilities}`, 20, 100);
+
+    doc.save("form-data.pdf");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1 className="text-center">CBSE Registration Form sample 9 and 11 </h1>
-
-      <Grid
-        container
-        spacing={3}
-        style={{ marginTop: "10px", marginBottom: "10px", padding: "20px" }}
-      >
-        {/* Candidate Details */}
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Candidate's Name"
-            fullWidth
-            value={formData.candidateName}
-            name="candidateName"
-            onChange={handleInputChange}
-            required
-          />
+    <div maxWidth="md" sx={{ mt: 4 }}>
+      <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+        <FormInstruction />
+        <Grid
+          container
+          spacing={2}
+          mt={4}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "80px",
+            maxHeight: "150px",
+            textAlign: "center",
+            backgroundColor: "whitesmoke",
+            maxWidth: "80%",
+            padding: "0",
+            margin: "auto", // center grid
+            marginBottom: "20px",
+            fontWeight: "650",
+          }}
+        >
+          <Grid item xs={12} md={4} p={0}>
+            SCHOOL CODE: 15026
+          </Grid>
+          <Grid item xs={12} md={4}>
+            CBSE AFFL NO. : 3330050
+          </Grid>
+          <Grid item xs={12} md={4}>
+            UDISE CODE: 22110408708
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Mother's Name"
-            fullWidth
-            value={formData.motherName}
-            name="motherName"
-            onChange={handleInputChange}
-            required
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Father's Name"
-            fullWidth
-            value={formData.fatherName}
-            name="fatherName"
-            onChange={handleInputChange}
-            required
-          />
-        </Grid>
-
-        {/* Gender and Cast */}
-        <Grid item xs={12} sm={4}>
-          <FormControl fullWidth>
-            <InputLabel>Gender</InputLabel>
-            <Select
-              value={formData.gender}
-              name="gender"
-              onChange={handleInputChange}
-              required
-            >
-              <MenuItem value="Male">Male</MenuItem>
-              <MenuItem value="Female">Female</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-
-        <Grid item xs={12} sm={4}>
-          <FormControl fullWidth>
-            <InputLabel>Cast</InputLabel>
-            <Select
-              value={formData.cast}
-              name="cast"
-              onChange={handleInputChange}
-              required
-            >
-              <MenuItem value="GEN">GEN</MenuItem>
-              <MenuItem value="SC">SC</MenuItem>
-              <MenuItem value="ST">ST</MenuItem>
-              <MenuItem value="OBC">OBC</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-
-        {/* Subject Selection */}
-        <Grid item xs={12} sm={4}>
-          <FormControl fullWidth>
-            <InputLabel>Mathematics Option</InputLabel>
-            <Select
-              value={formData.mathOption}
-              name="mathOption"
-              onChange={handleInputChange}
-              required
-            >
-              <MenuItem value="Basic">Mathematics Basic</MenuItem>
-              <MenuItem value="Advance">Mathematics Advance</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-
-        {/* Additional Subjects */}
-        {["subject1", "subject2", "subject3", "subject4"].map(
-          (subject, index) => (
-            <Grid item xs={12} sm={4} key={subject}>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} md={4}>
               <TextField
-                label={`Additional Subject ${index + 1}`}
+                select
                 fullWidth
-                value={formData.subjects[index]}
-                name={`subject${index + 1}`}
-                onChange={(e) => handleSubjectChange(index, e.target.value)}
+                label="Class"
+                name="class"
+                value={formData.class}
+                onChange={handleChange}
+                required
+                // sx={{ width: 300 }}
+              >
+                <MenuItem value="">Select Class</MenuItem>
+                <MenuItem value="9th">9th</MenuItem>
+                <MenuItem value="11th">11th</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4.01}>
+              <TextField
+                fullWidth
+                label="Section"
+                name="section"
+                value={formData.section}
+                onChange={handleChange}
+                // sx={{ width: 300 }}
               />
             </Grid>
-          )
-        )}
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Candidate's Name"
+                name="candidatename"
+                value={formData.candidatename}
+                onChange={handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Mother's Name"
+                name="mothername"
+                value={formData.mothername}
+                onChange={handleChange}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Father's Name"
+                name="fathername"
+                value={formData.fathername}
+                onChange={handleChange}
+                required
+              />
+            </Grid>
 
-        {/* Contact Details */}
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Student's Mobile Number"
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                select
+                fullWidth
+                label="Gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
+                <MenuItem value="">Select Genter</MenuItem>
+                <MenuItem value="Male">Male</MenuItem>
+                <MenuItem value="Female">Female</MenuItem>
+                <MenuItem value="Trans">Trans</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                select
+                fullWidth
+                label="Cast"
+                name="cast"
+                value={formData.cast}
+                onChange={handleChange}
+                required
+              >
+                <MenuItem value="">Select Cast</MenuItem>
+                <MenuItem value="GEN">GEN</MenuItem>
+                <MenuItem value="ST">ST</MenuItem>
+                <MenuItem value="SC">SC</MenuItem>
+                <MenuItem value="OBC">OBC</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Religion"
+                name="religion"
+                value={formData.religion}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                select
+                fullWidth
+                label="Disabilities"
+                name="disabilities"
+                value={formData.disabilities}
+                onChange={handleChange}
+                required
+              >
+                <MenuItem value="">Select</MenuItem>
+                <MenuItem value="NA">NA</MenuItem>
+                <MenuItem value="Blind">Blind</MenuItem>
+                <MenuItem value="Deaf">Deaf</MenuItem>
+                <MenuItem value="Handicapped">Handicapped</MenuItem>
+                <MenuItem value="Dyslexis">Dyslexis</MenuItem>
+              </TextField>
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
             fullWidth
-            value={formData.contactDetails.studentMobile}
-            name="contactDetails.studentMobile"
-            onChange={handleInputChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Father's Mobile Number"
-            fullWidth
-            value={formData.contactDetails.fatherMobile}
-            name="contactDetails.fatherMobile"
-            onChange={handleInputChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <TextField
-            label="Mother's Mobile Number"
-            fullWidth
-            value={formData.contactDetails.motherMobile}
-            name="contactDetails.motherMobile"
-            onChange={handleInputChange}
-          />
-        </Grid>
-
-        {/* Documents Upload */}
-        <Grid item xs={12} sm={4}>
-          <input
-            type="file"
-            name="marksheet"
-            onChange={handleFileChange}
-            style={{ width: "100%" }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <input
-            type="file"
-            name="casteCertificate"
-            onChange={handleFileChange}
-            style={{ width: "100%" }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <input
-            type="file"
-            name="photo"
-            onChange={handleFileChange}
-            style={{ width: "100%" }}
-          />
-        </Grid>
-
-        {/* Submit Button */}
-        <Grid item xs={12}>
-          <Box textAlign="center">
-            <Button variant="contained" type="submit">
-              Submit
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-    </form>
+            sx={{ mt: 3 }}
+          >
+            Submit
+          </Button>
+        </form>
+      </Paper>
+    </div>
   );
 };
 
