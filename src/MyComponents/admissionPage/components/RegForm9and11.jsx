@@ -25,8 +25,16 @@ const RegForm9and11 = () => {
     cast: "",
     religion: "",
     disabilities: "",
-
     subjects: [],
+    annualincome: "",
+    dob: "",
+    onlychildofparent: "",
+    admissionsn: "",
+    dateofadmission: "",
+    minority: "",
+    aadharnumber: "",
+    bankaccnumber: "",
+    ifsccode: "",
   });
 
   const handleChange = (e) => {
@@ -66,7 +74,20 @@ const RegForm9and11 = () => {
     doc.text(`Religion: ${formData.religion}`, 20, 90);
     doc.text(`Disabilities: ${formData.disabilities}`, 20, 100);
     doc.text(`Subjects: ${formData.subjects}`, 20, 110);
-
+   
+    doc.text(
+      `Annual Income of Father & Mother: ${formData.annualincome}`,
+      20,
+      120
+    );
+    doc.text(`Date of Birth: ${formData.dob}`, 20, 130);
+    doc.text(`Onlychild of the Parent: ${formData.onlychildofparent}`, 20, 140);
+    doc.text(`Admission Serial Number: ${formData.admissionsn}`, 20, 150);
+    doc.text(`Date of Admission: ${formData.dateofadmission}`, 20, 160);
+    doc.text(`Minority: ${formData.minority}`, 20, 170);
+    doc.text(`Aadhar Number: ${formData.aadharnumber}`, 20, 180);
+    doc.text(`Bank Acc Number: ${formData.bankaccnumber}`, 20, 190);
+    doc.text(`IFSC Code: ${formData.ifsccode}`, 20, 200);
     doc.save("form-data.pdf");
   };
 
@@ -128,7 +149,6 @@ const RegForm9and11 = () => {
                 name="section"
                 value={formData.section}
                 onChange={handleChange}
-                // sx={{ width: 300 }}
               />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
@@ -232,7 +252,6 @@ const RegForm9and11 = () => {
                 border: "1px solid rgb(182, 182, 182)",
                 borderRadius: "5px",
                 margin: "15px",
-                
               }}
             >
               <FormControl component="fieldset" required>
@@ -301,13 +320,115 @@ const RegForm9and11 = () => {
                 </FormGroup>
               </FormControl>
             </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Annual Income of Father & Mother"
+                name="annualincome"
+                value={formData.annualincome}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Date Of Birth"
+                name="dob"
+                type="date"
+                value={formData.dob}
+                onChange={handleChange}
+                InputLabelProps={{ shrink: true }}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                select
+                fullWidth
+                label="Only Child of the Parent"
+                name="onlychildofparent"
+                value={formData.onlychildofparent}
+                onChange={handleChange}
+              >
+                <MenuItem value="">Select</MenuItem>
+                <MenuItem value="Yes">Yes</MenuItem>
+                <MenuItem value="No">No</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Admission Serial Number"
+                name="admissionsn"
+                value={formData.admissionsn}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Date Of Admission"
+                name="dateofadmission"
+                type="date"
+                value={formData.dateofadmission}
+                onChange={handleChange}
+                InputLabelProps={{ shrink: true }}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                select
+                fullWidth
+                label="Minority"
+                name="minority"
+                value={formData.minority}
+                onChange={handleChange}
+              >
+                <MenuItem value="">Select</MenuItem>
+                <MenuItem value="Yes">Yes</MenuItem>
+                <MenuItem value="No">No</MenuItem>
+              </TextField>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Aadhar Number"
+                name="aadharnumber"
+                value={formData.aadharnumber}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="Bank Acc Number"
+                name="bankaccnumber"
+                value={formData.bankaccnumber}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <TextField
+                fullWidth
+                label="IFSC Code"
+                name="ifsccode"
+                value={formData.ifsccode}
+                onChange={handleChange}
+              />
+            </Grid>
           </Grid>
           <Button
             type="submit"
             variant="contained"
             color="primary"
             fullWidth
-            sx={{ mt: 3 }}
+            sx={{
+              width: 200,
+              display: "flex",
+              margin: "auto",
+              marginTop: "10px",
+            }}
           >
             Submit
           </Button>
