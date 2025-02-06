@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { jsPDF } from "jspdf";
 import FormInstruction from "./FormInstruction";
-import { Grid, TextField, MenuItem, Button, Paper } from "@mui/material";
-import { Start } from "@mui/icons-material";
+import {
+  Grid,
+  TextField,
+  MenuItem,
+  Button,
+  Paper,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
 
 const RegForm9and11 = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +25,28 @@ const RegForm9and11 = () => {
     cast: "",
     religion: "",
     disabilities: "",
+
+    subjects: [],
   });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  //for checkbox data
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    if (checked) {
+      setFormData({
+        ...formData,
+        subjects: [...formData.subjects, name],
+      });
+    } else {
+      setFormData({
+        ...formData,
+        subjects: formData.subjects.filter((subject) => subject !== name),
+      });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -37,6 +65,7 @@ const RegForm9and11 = () => {
     doc.text(`Cast: ${formData.cast}`, 20, 80);
     doc.text(`Religion: ${formData.religion}`, 20, 90);
     doc.text(`Disabilities: ${formData.disabilities}`, 20, 100);
+    doc.text(`Subjects: ${formData.subjects}`, 20, 110);
 
     doc.save("form-data.pdf");
   };
@@ -149,6 +178,7 @@ const RegForm9and11 = () => {
                 <MenuItem value="Trans">Trans</MenuItem>
               </TextField>
             </Grid>
+
             <Grid item xs={12} sm={6} md={4}>
               <TextField
                 select
@@ -192,6 +222,84 @@ const RegForm9and11 = () => {
                 <MenuItem value="Handicapped">Handicapped</MenuItem>
                 <MenuItem value="Dyslexis">Dyslexis</MenuItem>
               </TextField>
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              sx={{
+                border: "1px solid rgb(182, 182, 182)",
+                borderRadius: "5px",
+                margin: "15px",
+                
+              }}
+            >
+              <FormControl component="fieldset" required>
+                <FormLabel component="legend">Subjects</FormLabel>
+                <FormGroup row>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("Math")}
+                        onChange={handleCheckboxChange}
+                        name="Math"
+                      />
+                    }
+                    label="Math"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("Science")}
+                        onChange={handleCheckboxChange}
+                        name="Science"
+                      />
+                    }
+                    label="Science"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("English")}
+                        onChange={handleCheckboxChange}
+                        name="English"
+                      />
+                    }
+                    label="English"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("History")}
+                        onChange={handleCheckboxChange}
+                        name="History"
+                      />
+                    }
+                    label="History"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("Computer")}
+                        onChange={handleCheckboxChange}
+                        name="Computer"
+                      />
+                    }
+                    label="Computer"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={formData.subjects.includes("Additional")}
+                        onChange={handleCheckboxChange}
+                        name="Additional"
+                      />
+                    }
+                    label="Additional"
+                  />
+                </FormGroup>
+              </FormControl>
             </Grid>
           </Grid>
           <Button
