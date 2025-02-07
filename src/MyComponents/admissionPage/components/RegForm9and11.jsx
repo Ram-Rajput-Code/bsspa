@@ -93,153 +93,154 @@ const RegForm9and11 = () => {
     doc.text(`Reg Form Class : ${formData.class} `, 70, 20);
     doc.line(10, 22, pageWidth - 10, 22); // Horizontal line
     doc.line(10, 23, pageWidth - 10, 23); // Horizontal line
-    
 
+    // Personal Details
+    doc.text(`Class :`, 20, 30);
+    doc.text(`${formData.class}`, 100, 30);
 
-// Personal Details
-doc.text(`Class :`, 20, 30);
-doc.text(`${formData.class}`, 100, 30);
+    doc.text(`Section :`, 20, 40);
+    doc.text(`${formData.section}`, 100, 40);
 
-doc.text(`Section :`, 20, 40);
-doc.text(`${formData.section}`, 100, 40);
+    doc.text(`Candidate Name :`, 20, 50);
+    doc.text(`${formData.candidatename}`, 100, 50);
 
-doc.text(`Candidate Name :`, 20, 50);
-doc.text(`${formData.candidatename}`, 100, 50);
+    doc.text(`Mother's Name :`, 20, 60);
+    doc.text(`${formData.mothername}`, 100, 60);
 
-doc.text(`Mother's Name :`, 20, 60);
-doc.text(`${formData.mothername}`, 100, 60);
+    doc.text(`Father's Name :`, 20, 70);
+    doc.text(`${formData.fathername}`, 100, 70);
 
-doc.text(`Father's Name :`, 20, 70);
-doc.text(`${formData.fathername}`, 100, 70);
+    doc.text(`Gender :`, 20, 80);
+    doc.text(`${formData.gender}`, 100, 80);
 
-doc.text(`Gender :`, 20, 80);
-doc.text(`${formData.gender}`, 100, 80);
+    doc.text(`Caste :`, 20, 90);
+    doc.text(`${formData.cast}`, 100, 90);
 
-doc.text(`Caste :`, 20, 90);
-doc.text(`${formData.cast}`, 100, 90);
+    doc.text(`Religion :`, 20, 100);
+    doc.text(`${formData.religion}`, 100, 100);
 
-doc.text(`Religion :`, 20, 100);
-doc.text(`${formData.religion}`, 100, 100);
+    doc.text(`Disabilities :`, 20, 110);
+    doc.text(`${formData.disabilities}`, 100, 110);
 
-doc.text(`Disabilities :`, 20, 110);
-doc.text(`${formData.disabilities}`, 100, 110);
+    doc.text(`Subjects :`, 20, 120);
+    doc.text(`${formData.subjects.join(", ")}`, 100, 120);
 
-doc.text(`Subjects :`, 20, 120);
-doc.text(`${formData.subjects.join(", ")}`, 100, 120);
+    doc.text(`Annual Income :`, 20, 130);
+    doc.text(`${formData.annualincome}`, 100, 130);
 
-doc.text(`Annual Income :`, 20, 130);
-doc.text(`${formData.annualincome}`, 100, 130);
+    doc.text(`Date of Birth :`, 20, 140);
+    doc.text(`${formData.dob}`, 100, 140);
 
-doc.text(`Date of Birth :`, 20, 140);
-doc.text(`${formData.dob}`, 100, 140);
+    doc.text(`Only Child of Parent :`, 20, 150);
+    doc.text(`${formData.onlychildofparent}`, 100, 150);
 
-doc.text(`Only Child of Parent :`, 20, 150);
-doc.text(`${formData.onlychildofparent}`, 100, 150);
+    doc.text(`Admission SN :`, 20, 160);
+    doc.text(`${formData.admissionsn}`, 100, 160);
 
-doc.text(`Admission SN :`, 20, 160);
-doc.text(`${formData.admissionsn}`, 100, 160);
+    doc.text(`Date of Admission :`, 20, 170);
+    doc.text(`${formData.dateofadmission}`, 100, 170);
 
-doc.text(`Date of Admission :`, 20, 170);
-doc.text(`${formData.dateofadmission}`, 100, 170);
+    doc.text(`Minority :`, 20, 180);
+    doc.text(`${formData.minority}`, 100, 180);
 
-doc.text(`Minority :`, 20, 180);
-doc.text(`${formData.minority}`, 100, 180);
+    doc.text(`Aadhar Number :`, 20, 190);
+    doc.text(`${formData.aadharnumber}`, 100, 190);
 
-doc.text(`Aadhar Number :`, 20, 190);
-doc.text(`${formData.aadharnumber}`, 100, 190);
+    doc.text(`Bank Account Number :`, 20, 200);
+    doc.text(`${formData.bankaccnumber}`, 100, 200);
 
-doc.text(`Bank Account Number :`, 20, 200);
-doc.text(`${formData.bankaccnumber}`, 100, 200);
+    doc.text(`IFSC Code :`, 20, 210);
+    doc.text(`${formData.ifsccode}`, 100, 210);
 
-doc.text(`IFSC Code :`, 20, 210);
-doc.text(`${formData.ifsccode}`, 100, 210);
+    doc.text(`Bank Branch :`, 20, 220);
+    doc.text(`${formData.bankbranch}`, 100, 220);
 
-doc.text(`Bank Branch :`, 20, 220);
-doc.text(`${formData.bankbranch}`, 100, 220);
+    // Second Page
+    doc.addPage();
 
-// Second Page
-doc.addPage();
+    // Contact Details
+    doc.text(`Student Mobile Number :`, 20, 30);
+    doc.text(`${formData.studentmobilenumber}`, 100, 30);
 
-// Contact Details
-doc.text(`Student Mobile Number :`, 20, 30);
-doc.text(`${formData.studentmobilenumber}`, 100, 30);
+    doc.text(`Student Email :`, 20, 40);
+    doc.text(`${formData.studentemail}`, 100, 40);
 
-doc.text(`Student Email :`, 20, 40);
-doc.text(`${formData.studentemail}`, 100, 40);
+    doc.text(`Father's Mobile Number :`, 20, 50);
+    doc.text(`${formData.fathermobilenumber}`, 100, 50);
 
-doc.text(`Father's Mobile Number :`, 20, 50);
-doc.text(`${formData.fathermobilenumber}`, 100, 50);
+    doc.text(`Father's Email :`, 20, 60);
+    doc.text(`${formData.fatheremail}`, 100, 60);
 
-doc.text(`Father's Email :`, 20, 60);
-doc.text(`${formData.fatheremail}`, 100, 60);
+    doc.text(`Mother's Mobile Number :`, 20, 70);
+    doc.text(`${formData.mothermobilenumber}`, 100, 70);
 
-doc.text(`Mother's Mobile Number :`, 20, 70);
-doc.text(`${formData.mothermobilenumber}`, 100, 70);
+    doc.text(`Mother's Email :`, 20, 80);
+    doc.text(`${formData.motheremail}`, 100, 80);
 
-doc.text(`Mother's Email :`, 20, 80);
-doc.text(`${formData.motheremail}`, 100, 80);
+    doc.text(`Guardian's Mobile Number :`, 20, 90);
+    doc.text(`${formData.guardianmobilenumber}`, 100, 90);
 
-doc.text(`Guardian's Mobile Number :`, 20, 90);
-doc.text(`${formData.guardianmobilenumber}`, 100, 90);
+    doc.text(`Guardian's Email :`, 20, 100);
+    doc.text(`${formData.guardianemail}`, 100, 100);
 
-doc.text(`Guardian's Email :`, 20, 100);
-doc.text(`${formData.guardianemail}`, 100, 100);
+    // Occupation Details
+    doc.text(`Father's Occupation :`, 20, 110);
+    doc.text(`${formData.fatheroccupation}`, 100, 110);
 
-// Occupation Details
-doc.text(`Father's Occupation :`, 20, 110);
-doc.text(`${formData.fatheroccupation}`, 100, 110);
+    doc.text(`Father's Service :`, 20, 120);
+    doc.text(`${formData.fatherservice}`, 100, 120);
 
-doc.text(`Father's Service :`, 20, 120);
-doc.text(`${formData.fatherservice}`, 100, 120);
+    doc.text(`Father's Other :`, 20, 130);
+    doc.text(`${formData.fatherother}`, 100, 130);
 
-doc.text(`Father's Other :`, 20, 130);
-doc.text(`${formData.fatherother}`, 100, 130);
+    doc.text(`Mother's Occupation :`, 20, 140);
+    doc.text(`${formData.motheroccupation}`, 100, 140);
 
-doc.text(`Mother's Occupation :`, 20, 140);
-doc.text(`${formData.motheroccupation}`, 100, 140);
+    doc.text(`Mother's Service :`, 20, 150);
+    doc.text(`${formData.motherservice}`, 100, 150);
 
-doc.text(`Mother's Service :`, 20, 150);
-doc.text(`${formData.motherservice}`, 100, 150);
+    doc.text(`Mother's Other :`, 20, 160);
+    doc.text(`${formData.motherother}`, 100, 160);
 
-doc.text(`Mother's Other :`, 20, 160);
-doc.text(`${formData.motherother}`, 100, 160);
+    doc.text(`Guardian's Occupation :`, 20, 170);
+    doc.text(`${formData.guardianoccupation}`, 100, 170);
 
-doc.text(`Guardian's Occupation :`, 20, 170);
-doc.text(`${formData.guardianoccupation}`, 100, 170);
+    doc.text(`Guardian's Service :`, 20, 180);
+    doc.text(`${formData.guardianservice}`, 100, 180);
 
-doc.text(`Guardian's Service :`, 20, 180);
-doc.text(`${formData.guardianservice}`, 100, 180);
+    doc.text(`Guardian's Other :`, 20, 190);
+    doc.text(`${formData.guardianother}`, 100, 190);
 
-doc.text(`Guardian's Other :`, 20, 190);
-doc.text(`${formData.guardianother}`, 100, 190);
+    // Sibling Details
+    doc.text(`First Sibling Name :`, 20, 200);
+    doc.text(`${formData.firstsiblingname}`, 100, 200);
 
-// Sibling Details
-doc.text(`First Sibling Name :`, 20, 200);
-doc.text(`${formData.firstsiblingname}`, 100, 200);
+    doc.text(`First Sibling Class :`, 20, 210);
+    doc.text(`${formData.firstsiblingclass}`, 100, 210);
 
-doc.text(`First Sibling Class :`, 20, 210);
-doc.text(`${formData.firstsiblingclass}`, 100, 210);
+    doc.text(`Second Sibling Name :`, 20, 220);
+    doc.text(`${formData.secondsiblingname}`, 100, 220);
 
-doc.text(`Second Sibling Name :`, 20, 220);
-doc.text(`${formData.secondsiblingname}`, 100, 220);
+    doc.text(`Second Sibling Class :`, 20, 230);
+    doc.text(`${formData.secondsiblingclass}`, 100, 230);
 
-doc.text(`Second Sibling Class :`, 20, 230);
-doc.text(`${formData.secondsiblingclass}`, 100, 230);
+    doc.text(`Third Sibling Name :`, 20, 240);
+    doc.text(`${formData.thirdsiblingname}`, 100, 240);
 
-doc.text(`Third Sibling Name :`, 20, 240);
-doc.text(`${formData.thirdsiblingname}`, 100, 240);
+    doc.text(`Third Sibling Class :`, 20, 250);
+    doc.text(`${formData.thirdsiblingclass}`, 100, 250);
 
-doc.text(`Third Sibling Class :`, 20, 250);
-doc.text(`${formData.thirdsiblingclass}`, 100, 250);
-
-// Save PDF
-doc.save("student_details.pdf");
-
+    // Save PDF
+    doc.save("student_details.pdf");
   };
 
   return (
     <div maxWidth="md" sx={{ mt: 4 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+        <h3 className="text-center">
+          CBSE REGISTERATION FORM (CLASS 9 AND 11)
+        </h3>
+        <hr />
         <FormInstruction />
         <Grid
           container

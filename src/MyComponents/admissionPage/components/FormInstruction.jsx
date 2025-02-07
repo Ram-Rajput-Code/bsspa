@@ -14,8 +14,7 @@ const FormInstruction = () => {
 
   return (
     <>
-    <h3 className="text-center">CBSE REGISTERATION FORM (CLASS 9 AND 11)</h3>
-    <hr />
+    
     <div style={styles.container}>
       <h2 style={styles.heading}>Instructions</h2>
       <ol style={styles.list}>
