@@ -14,6 +14,7 @@ import FacilitiesPage from "./MyComponents/facilitiesPage/FacilitiesPage.jsx";
 import AdmissionPage from "./MyComponents/admissionPage/AdmissionPage.jsx";
 import PageNotFound from "./MyComponents/PageNotFound.jsx";
 import HomeSliderAdmin from "./MyComponents/admin/HomeSliderAdmin.jsx";
+import AboutPageBannerAdmin from "./MyComponents/admin/AboutPageBannerAdmin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -154,6 +155,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <HomeSliderAdmin /> 
+      </>
+    ),
+  },
+  {
+    path: "/admin/about-banner",
+    element: (
+      <>
+        <AboutPageBannerAdmin /> 
       </>
     ),
   },

@@ -2,6 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Typography, TextField } from "@mui/material";
 import { getImages, uploadImage, updateImage, deleteImage } from "../../api/api";
+import { 
+    getHomeSliderImages, 
+    uploadHomeSliderImage, 
+    updateHomeSliderImage, 
+    deleteHomeSliderImage 
+  } from "../../api/api";
+  
 
 const HomeSliderAdmin = () => {
   const [images, setImages] = useState([]);
@@ -12,7 +19,7 @@ const HomeSliderAdmin = () => {
   // Fetch images from the backend
   useEffect(() => {
     const fetchImages = async () => {
-      const data = await getImages();
+      const data = await getHomeSliderImages();
       setImages(data);
     };
     fetchImages();
@@ -36,7 +43,7 @@ const HomeSliderAdmin = () => {
     formData.append("image", selectedFile);
 
     try {
-      const newImage = await uploadImage(formData);
+      const newImage = await uploadHomeSliderImage(formData);
       setImages([...images, newImage]);
       setSelectedFile(null);
       setPreview(null);
@@ -56,7 +63,7 @@ const HomeSliderAdmin = () => {
     formData.append("image", selectedFile);
 
     try {
-      const updatedImage = await updateImage(id, formData);
+      const updatedImage = await updateHomeSliderImage(id, formData);
       setImages(images.map(img => img.id === id ? updatedImage : img));
       setSelectedFile(null);
       setPreview(null);
@@ -69,7 +76,7 @@ const HomeSliderAdmin = () => {
   // Delete an image
   const handleDelete = async (id) => {
     try {
-      await deleteImage(id);
+      await deleteHomeSliderImage(id);
       setImages(images.filter((image) => image.id !== id));
     } catch (error) {
       console.error("Error deleting image:", error);
