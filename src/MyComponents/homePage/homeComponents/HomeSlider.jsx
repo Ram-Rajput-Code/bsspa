@@ -89,7 +89,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, IconButton } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import { getImages } from "../../../api/api";
+import { getHomeSliderImages } from "../../../api/api";
 
 const HomeSlider = () => {
     const [images, setImages] = useState([]);
@@ -97,7 +97,7 @@ const HomeSlider = () => {
 
     useEffect(() => {
         const fetchImages = async () => {
-            const data = await getImages();
+            const data = await getHomeSliderImages();
             setImages(data);
         };
         fetchImages();

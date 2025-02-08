@@ -1,27 +1,52 @@
 //src/api/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/homeSlider';
+const BASE_URL = 'http://localhost:5000/api';
 
-export const getImages = async () => {
-    const res = await axios.get(API_URL);
+// Home Slider APIs
+export const getHomeSliderImages = async () => {
+    const res = await axios.get(`${BASE_URL}/homeSlider`);
     return res.data;
 };
 
-export const uploadImage = async (formData) => {
-    const res = await axios.post(`${API_URL}/upload`, formData, {
+export const uploadHomeSliderImage = async (formData) => {
+    const res = await axios.post(`${BASE_URL}/homeSlider/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
     });
     return res.data;
 };
 
-export const updateImage = async (id, formData) => {
-    const res = await axios.put(`${API_URL}/update/${id}`, formData, {
+export const updateHomeSliderImage = async (id, formData) => {
+    const res = await axios.put(`${BASE_URL}/homeSlider/update/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
     });
     return res.data;
 };
 
-export const deleteImage = async (id) => {
-    await axios.delete(`${API_URL}/${id}`);
+export const deleteHomeSliderImage = async (id) => {
+    await axios.delete(`${BASE_URL}/homeSlider/${id}`);
+};
+
+// About Page Banner APIs
+export const getBanners = async () => {
+    const res = await axios.get(`${BASE_URL}/aboutPageBanner`);
+    return res.data;
+};
+
+export const uploadBanner = async (formData) => {
+    const res = await axios.post(`${BASE_URL}/aboutPageBanner/upload`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return res.data;
+};
+
+export const updateBanner = async (id, formData) => {
+    const res = await axios.put(`${BASE_URL}/aboutPageBanner/update/${id}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return res.data;
+};
+
+export const deleteBanner = async (id) => {
+    await axios.delete(`${BASE_URL}/aboutPageBanner/${id}`);
 };
