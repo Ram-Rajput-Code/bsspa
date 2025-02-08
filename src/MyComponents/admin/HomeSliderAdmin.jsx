@@ -1,11 +1,13 @@
+//src/MyComponents/admin/HomeSliderAdmin.jsx
 import React, { useState, useEffect } from "react";
 import { Box, Button, Typography, TextField } from "@mui/material";
-import { getImages, uploadImage, deleteImage } from "../../api/api";
+import { getImages, uploadImage, updateImage, deleteImage } from "../../api/api";
 
 const HomeSliderAdmin = () => {
   const [images, setImages] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [editingId, setEditingId] = useState(null);
 
   // Fetch images from the backend
   useEffect(() => {
@@ -43,6 +45,27 @@ const HomeSliderAdmin = () => {
     }
   };
 
+  // Update an image
+  const handleUpdate = async (id) => {
+    if (!selectedFile) {
+      alert("Please select a file to update.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+
+    try {
+      const updatedImage = await updateImage(id, formData);
+      setImages(images.map(img => img.id === id ? updatedImage : img));
+      setSelectedFile(null);
+      setPreview(null);
+      setEditingId(null);
+    } catch (error) {
+      console.error("Error updating image:", error);
+    }
+  };
+
   // Delete an image
   const handleDelete = async (id) => {
     try {
@@ -75,6 +98,13 @@ const HomeSliderAdmin = () => {
             <Box key={image.id} sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
               <img src={`http://localhost:5000/uploads/${image.image}`} alt="Slider" width="100px" />
               <Button variant="contained" color="error" onClick={() => handleDelete(image.id)}>Delete</Button>
+              <Button variant="contained" color="secondary" onClick={() => setEditingId(image.id)}>Edit</Button>
+              {editingId === image.id && (
+                <Box>
+                  <input type="file" onChange={handleFileChange} accept="image/*" />
+                  <Button variant="contained" color="success" onClick={() => handleUpdate(image.id)}>Update</Button>
+                </Box>
+              )}
             </Box>
           ))
         )}
