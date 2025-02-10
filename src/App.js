@@ -15,6 +15,9 @@ import AdmissionPage from "./MyComponents/admissionPage/AdmissionPage.jsx";
 import PageNotFound from "./MyComponents/PageNotFound.jsx";
 import HomeSliderAdmin from "./MyComponents/admin/HomeSliderAdmin.jsx";
 import AboutPageBannerAdmin from "./MyComponents/admin/AboutPageBannerAdmin.jsx";
+import AdminPanel from "./MyComponents/admin/AdminPanelLayout.jsx";
+import AdminPanelLayout from "./MyComponents/admin/AdminPanelLayout.jsx";
+import AdminDashboard from "./MyComponents/admin/AdminDashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -150,21 +153,17 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/admin/home-slider",
-    element: (
-      <>
-        <HomeSliderAdmin /> 
-      </>
-    ),
-  },
-  {
-    path: "/admin/about-banner",
-    element: (
-      <>
-        <AboutPageBannerAdmin /> 
-      </>
-    ),
+
+
+   // **Admin Routes**
+   {
+    path: "/admin",
+    element: <AdminPanelLayout />,
+    children: [
+      { index: true, element: <AdminDashboard /> }, // Default admin page
+      { path: "home-slider", element: <HomeSliderAdmin /> },
+      { path: "about-banner", element: <AboutPageBannerAdmin /> },
+    ],
   },
 ]);
 

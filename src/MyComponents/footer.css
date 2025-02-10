@@ -28,16 +28,30 @@ ul li span {
   color: #ff9100;
 }
 
-
 .footerlogo {
   padding-bottom: 10px;
   display: flex;
   align-items: center;
-  font-family: 'Algerian', sans-serif;
+  font-family: "Algerian", sans-serif;
+}
+.footerlogo-admin {
+  padding-bottom: 0px;
+  width: px;
+
+  display: flex;
+  align-items: center;
+  font-family: "Algerian", sans-serif;
+}
+.ftrlogotext-admin {
+  font-size: x-small;
+}
+.footerlogo-admin img {
+  height: 50px;
 }
 .footerlogo img {
   height: 70px;
 }
+
 
 .footerlogo h2 {
   color: white;
@@ -88,5 +102,3 @@ a {
     opacity: 0;
   }
 }
-
-
