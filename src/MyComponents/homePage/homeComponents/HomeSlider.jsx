@@ -116,14 +116,14 @@ const HomeSlider = () => {
     return (
         <Box sx={{ position: "relative", width: "100%", margin: "auto", overflow: "hidden" }}>
             <Box sx={{ display: "flex", transition: "transform 0.9s ease-in-out", transform: `translateX(-${currentIndex * 100}%)` }}>
-                {images.map((image, index) => (
+               {images.map((image, index) => (
                     <Box key={index} component="img" src={`http://localhost:5000/uploads/${image.image}`} alt={`Slide ${index}`} sx={{ width: "100%", flexShrink: 0 }} />
                 ))}
             </Box>
-            <IconButton onClick={prevSlide} sx={{ position: "absolute", top: "50%", left: "10px", transform: "translateY(-50%)" }}>
+            <IconButton onClick={prevSlide} sx={{ position: "absolute", top: "50%", left: "10px", transform: "translateY(-50%)", color:"white", backgroundColor:"rgba(0, 0, 0, 0.24)" }}>
                 <ArrowBackIos />
             </IconButton>
-            <IconButton onClick={nextSlide} sx={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)" }}>
+            <IconButton onClick={nextSlide} sx={{ position: "absolute", top: "50%", right: "10px", transform: "translateY(-50%)", color:"white", backgroundColor:"rgba(0, 0, 0, 0.24)" }}>
                 <ArrowForwardIos />
             </IconButton>
         </Box>
