@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import {
   Grid,
@@ -27,7 +29,7 @@ const AboutSchool = () => {
   return (
     <div className="container-fluid my-4">
       {principalMessages.map((item) => (
-        <Card key={item.id} className="mb-4 shadow-lg" sx={{backgroundColor:"rgba(231, 229, 229, 0.4)"}}>
+        <Card key={item.id} className="mb-4 shadow-lg" sx={{ backgroundColor: "rgba(231, 229, 229, 0.4)" }}>
           <CardContent>
             <Grid container spacing={3} alignItems="center">
               {/* Left Side - Image */}
@@ -35,8 +37,8 @@ const AboutSchool = () => {
                 item
                 xs={12}
                 md={6}
-                display={"flex"}
-                justifyContent={"center"}
+                display="flex"
+                justifyContent="center"
               >
                 <img
                   src={item.image}
@@ -50,17 +52,14 @@ const AboutSchool = () => {
                 />
               </Grid>
 
-              <Grid item xs={12} md={6}>
-                <Typography variant="h5" component="h2" gutterBottom >
+              {/* Right Side - Content */}
+              <Grid item xs={12} md={6} sx={{ textAlign: "center" }}>
+                <Typography variant="h5" component="h2" gutterBottom fontWeight="bold">
                   About School
                 </Typography>
-
-                {/* Accordion for Message 1 */}
                 <CustomAccordion text={item.message1} />
               </Grid>
             </Grid>
-
-            {/* Accordion for Message 2 */}
             <CustomAccordion text={item.message2} />
           </CardContent>
         </Card>
@@ -76,22 +75,19 @@ const CustomAccordion = ({ text }) => {
   // Split text into lines and get first 4 lines for preview
   const lines = text.split(", ");
   const previewText =
-    lines.slice(0, 4).join(", ") + (lines.length > 4 ? "..." : "");
+    lines.slice(0, 3).join(", ") + (lines.length > 4 ? "..." : "");
 
   return (
-    <Accordion
-      elevation={0}
-      sx={{ backgroundColor: "transparent", boxShadow: "none" }}
-    >
+    <Accordion elevation={0} sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
       <AccordionSummary
         expandIcon={
-          <IconButton onClick={() => setExpanded(!expanded)} >
+          <IconButton onClick={() => setExpanded(!expanded)}>
             <ExpandMoreIcon />
           </IconButton>
         }
-       
+        sx={{ textAlign: "center", width: "100%" }}
       >
-        <Typography variant="body1" color="textSecondary">
+        <Typography variant="body1" color="textSecondary" sx={{ textAlign: "justify", width: "100%" }}>
           {expanded ? text : previewText}
         </Typography>
       </AccordionSummary>

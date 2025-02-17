@@ -36,11 +36,11 @@ export default function Footer() {
         <Grid item xs={12} md={4} textAlign={{ xs: "center", md: "left" }}>
           <Box display="flex" alignItems="center" justifyContent={{ xs: "center", md: "start" }}>
             <img src="/images/logofooter.png" alt="Logo" style={{ height: 70, marginRight: 10 }} />
-            <div className="footerlogo" style={{fontSize:"0.7rem"}}>
+            <div className="footerlogo" style={{fontSize:"0.8rem"}}>
               BHARAT Sevashram Sangha <br /> Pranavananda Academy
             </div>
           </Box>
-          <Typography variant="body2" mt={2} margin="auto" maxWidth={400}>
+          <Typography variant="body2" mt={2} margin="auto" maxWidth={400} sx={{textAlign:"justify"}}>
             Pranavananda Academy, run by Bharat Sevashram Sangha, with its diversified academic activities in various parts of the country, has come into existence in Raipur commemorating the Centenary Celebrations of Swami Pranavanandaji Maharaj.
           </Typography>
         </Grid>

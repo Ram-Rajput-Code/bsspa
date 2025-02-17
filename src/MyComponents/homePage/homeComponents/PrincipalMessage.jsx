@@ -9,6 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   IconButton,
+  Container,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -66,7 +67,7 @@ const PrincipalMessage = () => {
   if (error) return <Typography color="error">Error: {error}</Typography>;
 
   return (
-    <div className="container-fluid my-4">
+    <Container sx={{marginTop:"10px"}}>
       <Card className="mb-4 shadow-lg">
         <CardContent>
           <Grid
@@ -81,7 +82,7 @@ const PrincipalMessage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={4}
+                  
                   key={index}
                   sx={{ width: "100%" }}
                 >
@@ -92,10 +93,10 @@ const PrincipalMessage = () => {
                       alt={`Gallery Image ${index}`}
                       sx={{
                         width: "100%",
-                        height: {xs:"120",
-                          sm:"200",
-                          md:"300",
-                          lg:"350",
+                        height: {xs:"150px",
+                          sm:"200px",
+                          md:"250px",
+                          lg:"300px",
                         },
                         objectFit: "cover",
                       }}
@@ -113,19 +114,19 @@ const PrincipalMessage = () => {
 
             {/* Right Side - Principal's Message */}
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" component="h2" gutterBottom>
+              <Typography variant="h5" component="h2" gutterBottom sx={{fontWeight:"bold", fontSize:{xs:"1rem", sm:"1.1rem", md:"1.2rem"}}}>
                 Principal's Message
               </Typography>
 
-              <CustomAccordion text={principalMessages.message1} />
-              <CustomAccordion text={principalMessages.message2} />
+              <CustomAccordion variant="body1" text={principalMessages.message1} />
+              <CustomAccordion variant="body1" text={principalMessages.message2} />
 
               <Typography variant="body1" sx={{ fontWeight: "bold", mt: 2 }}>
                 {principalMessages.message3}
               </Typography>
 
               <Typography
-                variant="subtitle1"
+                variant="body1"
                 sx={{ fontWeight: "bold", mt: 2 }}
               >
                 - {principalMessages.principal}
@@ -134,7 +135,7 @@ const PrincipalMessage = () => {
           </Grid>
         </CardContent>
       </Card>
-    </div>
+    </Container>
   );
 };
 
@@ -155,14 +156,18 @@ const CustomAccordion = ({ text }) => {
         }
       >
         <Typography variant="body1" color="textSecondary">
-          {expanded ? text : text.substring(0, 100) + "..."}
+          {/* Show shortened text when collapsed, and full text when expanded */}
+          {expanded ? text : text.substring(0, 90) + "..."}
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>{text}</Typography>
+        {/* Only show the full text when expanded */}
+        {expanded && <Typography>{text}</Typography>}
       </AccordionDetails>
     </Accordion>
   );
 };
 
+
 export default PrincipalMessage;
+

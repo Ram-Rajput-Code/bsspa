@@ -26,10 +26,10 @@ const FounderOfSchool = () => {
         {/* Right Side */}
 
         <Grid item xs={12} md={7}>
-          <Typography variant="h6" className="mb-2">
+          <Typography variant="h6" className="mb-2" fontWeight="bold">
             {data.title}
           </Typography>
-          <Typography variant="body1" className="mb-2">
+          <Typography variant="body1" className="mb-2" textAlign="justify">
             {data.text}
           </Typography>
         </Grid>

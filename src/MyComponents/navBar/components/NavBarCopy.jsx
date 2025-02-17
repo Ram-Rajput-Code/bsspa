@@ -66,8 +66,6 @@ const NavBarCopy = ({
   const toggleAdmissionDropdown = () => setIsAdmissionOpen(!isAdmissionOpen);
 
   const [menuData, setMenuData] = useState([]);
-  
-
   const fetchGeneral = async () => {
     try {
       const response = await axios.get(`${Backend_Url}/MenuMaster/getall`, {

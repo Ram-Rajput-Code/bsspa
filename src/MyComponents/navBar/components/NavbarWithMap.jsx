@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   AppBar,
@@ -16,7 +16,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
-
+import axios from "axios";
+import Backend_Url from "../../../Config/BackendUrl";
+import token from "../../../Config/Token";
 const NavBarWithMap = ({
   aboutBannerRef,
   aboutSchoolRef,
@@ -64,121 +66,137 @@ const NavBarWithMap = ({
   };
 
   // Define your nav items and submenus
-  const navItems = [
-    {
-      label: "Home",
-      to: "/",
-    },
-    {
-      label: "About Us",
-      to: "/about",
-      submenu: [
-        {
-          label: "About School",
-          to: "/about",
-          onClick: () => scrollToSection(aboutSchoolRef),
-        },
-        {
-          label: "Founder of BSS",
-          to: "/about",
-          onClick: () => scrollToSection(founderBSSPARef),
-        },
-        {
-          label: "Founder of School",
-          to: "/about",
-          onClick: () => scrollToSection(founderSchoolRef),
-        },
-        {
-          label: "Secretary Message",
-          to: "/about",
-          onClick: () => scrollToSection(secretaryMessageRef),
-        },
-        {
-          label: "Principal Message",
-          to: "/about",
-          onClick: () => scrollToSection(principalMessageRef),
-        },
-        {
-          label: "Members",
-          to: "/about",
-          onClick: () => scrollToSection(membersRef),
-        },
-      ],
-    },
-    {
-      label: "Facilities",
-      to: "/facilities",
-      submenu: [
-        {
-          label: "Faculties",
-          to: "/facilities/faculties",
-        },
-        {
-          label: "Infrastructures and Facilities",
-          to: "/facilities/infrastructure",
-        },
-        {
-          label: "Our Praxis",
-          to: "/facilities/praxis",
-        },
-      ],
-    },
-    {
-      label: "Admission",
-      to: "/admission",
-      submenu: [
-        {
-          label: "Academic",
-          to: "/admission/academic",
-        },
-        {
-          label: "Procedure and Withdrawal",
-          to: "/admission/admission-procedure",
-        },
-        {
-          label: "School Rules",
-          to: "/admission/school-rules",
-        },
-        {
-          label: "Guideline To Parent",
-          to: "/admission/guideline-to-parent",
-        },
-        {
-          label: "Fees Deposition Rules",
-          to: "/admission/fees-deposition-rules",
-        },
-        {
-          label: "TC Issued",
-          to: "/admission/students-tc-list",
-        },
-        {
-          label: "Reg. Form Class 9 and 11",
-          to: "/admission/reg-form9and11",
-        },
-        {
-          label: "Reg. Form Class 10 and 12",
-          to: "/admission/reg-form10and12",
-        },
-        {
-          label: "Student Details",
-          to: "/admission/students-list",
-        },
-      ],
-    },
-    {
-      label: "Activities",
-      to: "/activities",
-    },
-    {
-      label: "Gallery",
-      to: "/gallery",
-    },
-    {
-      label: "Contact",
-      to: "/contact",
-    },
-  ];
+//   const navItems = [
+//     {
+//       label: "Home",
+//       to: "/",
+//     },
+//     {
+//       label: "About Us",
+//       to: "/about",
+//       submenu: [
+//         {
+//           label: "About School",
+//           to: "/about",
+//           onClick: () => scrollToSection(aboutSchoolRef),
+//         },
+//         {
+//           label: "Founder of BSS",
+//           to: "/about",
+//           onClick: () => scrollToSection(founderBSSPARef),
+//         },
+//         {
+//           label: "Founder of School",
+//           to: "/about",
+//           onClick: () => scrollToSection(founderSchoolRef),
+//         },
+//         {
+//           label: "Secretary Message",
+//           to: "/about",
+//           onClick: () => scrollToSection(secretaryMessageRef),
+//         },
+//         {
+//           label: "Principal Message",
+//           to: "/about",
+//           onClick: () => scrollToSection(principalMessageRef),
+//         },
+//         {
+//           label: "Members",
+//           to: "/about",
+//           onClick: () => scrollToSection(membersRef),
+//         },
+//       ],
+//     },
+//     {
+//       label: "Facilities",
+//       to: "/facilities",
+//       submenu: [
+//         {
+//           label: "Faculties",
+//           to: "/facilities/faculties",
+//         },
+//         {
+//           label: "Infrastructures and Facilities",
+//           to: "/facilities/infrastructure",
+//         },
+//         {
+//           label: "Our Praxis",
+//           to: "/facilities/praxis",
+//         },
+//       ],
+//     },
+//     {
+//       label: "Admission",
+//       to: "/admission",
+//       submenu: [
+//         {
+//           label: "Academic",
+//           to: "/admission/academic",
+//         },
+//         {
+//           label: "Procedure and Withdrawal",
+//           to: "/admission/admission-procedure",
+//         },
+//         {
+//           label: "School Rules",
+//           to: "/admission/school-rules",
+//         },
+//         {
+//           label: "Guideline To Parent",
+//           to: "/admission/guideline-to-parent",
+//         },
+//         {
+//           label: "Fees Deposition Rules",
+//           to: "/admission/fees-deposition-rules",
+//         },
+//         {
+//           label: "TC Issued",
+//           to: "/admission/students-tc-list",
+//         },
+//         {
+//           label: "Reg. Form Class 9 and 11",
+//           to: "/admission/reg-form9and11",
+//         },
+//         {
+//           label: "Reg. Form Class 10 and 12",
+//           to: "/admission/reg-form10and12",
+//         },
+//         {
+//           label: "Student Details",
+//           to: "/admission/students-list",
+//         },
+//       ],
+//     },
+//     {
+//       label: "Activities",
+//       to: "/activities",
+//     },
+//     {
+//       label: "Gallery",
+//       to: "/gallery",
+//     },
+//     {
+//       label: "Contact",
+//       to: "/contact",
+//     },
+//   ];
 
+  const [menuData, setMenuData] = useState([]);
+  const fetchGeneral = async () => {
+    try {
+      const response = await axios.get(`${Backend_Url}/MenuMaster/getall`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = response.data;
+      setMenuData(data.data); // Assuming 'email' is part of the response object
+
+    } catch (error) {
+      console.error("Error fetching menu data:", error);
+    }
+  };
+  useEffect(() => {
+    fetchGeneral();
+  }, []);
   return (
     <AppBar
       position="sticky"
@@ -194,7 +212,13 @@ const NavBarWithMap = ({
           {/* Desktop Navigation */}
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Box sx={{ display: "flex", gap: 2 }}>
-              {navItems.map((item, index) => {
+            {menuData.map((menu) => (
+          <li key={menu.Id} style={{listStyle:"none"}}>
+            <strong>{menu.Category_sub}</strong> 
+            {menu.GruopName !== "null" && <span> (Group: {menu.GruopName})</span>}
+          </li>
+        ))}
+              {/* {menuData.map((item, index) => {
                 if (item.submenu) {
                   return (
                     <div key={index}>
@@ -252,7 +276,7 @@ const NavBarWithMap = ({
                     </NavLink>
                   );
                 }
-              })}
+              })} */}
             </Box>
           </Box>
 
@@ -285,7 +309,7 @@ const NavBarWithMap = ({
         className="hide"
       >
         <List>
-          {navItems.map((item, index) => (
+          {menuData.map((item, index) => (
             <React.Fragment key={index}>
               <ListItem
                 button
