@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   Typography,
   Card,
   CardContent,
+  CardMedia,
   Accordion,
   AccordionSummary,
   AccordionDetails,
@@ -11,64 +12,128 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const principalMessages = [
-  {
-    id: 1,
-    message1:
-      "This world was not built in a day. It took many years of sacrifices and uphill struggle to construct this, yet after overcoming all those hardships, this world is still to be perfected. We, mankind, are the best creation of God, but an ideal world is still very alien to us. Well, the reason is very simple, 'we forgot what our ancestors went through'. We forgot those sacrifices in world wars, we forgot the struggles of freedom and independence, but most of all, we forgot the true meaning of being human.",
-    message2:
-      "But as Einstein said, 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything'. So the aim of BSS Pranavananda Academy is not only to build a man of success but a man of wisdom, who knows to owe his forefathers for giving such a magnificent world. He understands the true meaning of being human. As we believe, they can and they will create a perfect ideal world. ",
-    message3: "Tomorrow - better than today.",
-    principal: "Dr. A. P. Sharma",
-    image: "images/principal-desk.jpg", // Replace with actual image URL
-  },
-];
+import token from "../../../Config/Token";
+import Backend_Url from "../../../Config/BackendUrl";
 
 const PrincipalMessage = () => {
+  const [principalImage, setPrincipalImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Principal's Message Data
+  const principalMessages = {
+    id: 1,
+    message1:
+      "This world was not built in a day. It took many years of sacrifices and uphill struggle to construct this, yet after overcoming all those hardships, this world is still to be perfected...",
+    message2:
+      "But as Einstein said, 'The world will not be destroyed by those who do evil, but by those who watch them without doing anything'...",
+    message3: "Tomorrow - better than today.",
+    principal: "Dr. A. P. Sharma",
+  };
+
+  // Fetch images from backend
+  useEffect(() => {
+    fetch(`${Backend_Url}/gallery/images/all`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched Principal Image Data:", data);
+        if (data.groupedImages && Array.isArray(data.groupedImages.principal)) {
+          setPrincipalImage(data.groupedImages.principal); // Use first image or fallback
+        } else {
+          throw new Error("Invalid API response format");
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching principal image:", err);
+        setError(err.message);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <Typography>Loading principal's image...</Typography>;
+  if (error) return <Typography color="error">Error: {error}</Typography>;
+
   return (
     <div className="container-fluid my-4">
-      {principalMessages.map((item) => (
-        <Card key={item.id} className="mb-4 shadow-lg">
-          <CardContent>
-            <Grid container spacing={3} alignItems="center">
-              {/* Left Side - Image */}
-              <Grid item xs={12} md={6} display={"flex"} justifyContent={"center"}>
-                <img
-                  src={item.image}
-                  alt="Principal"
-                  className="img-fluid rounded"
-                  style={{ width: "60%", height: "auto", border: "1px solid white"}}
-                />
-              </Grid>
-
-              {/* Right Side - Principal's Message */}
-              <Grid item xs={12} md={6}>
-                <Typography variant="h5" component="h2" gutterBottom>
-                  Principal's Message
-                </Typography>
-
-                {/* Accordion for Message 1 */}
-                <CustomAccordion text={item.message1} />
-
-                {/* Accordion for Message 2 */}
-                <CustomAccordion text={item.message2} />
-
-                <Typography variant="body1"  sx={{ fontWeight: "bold", mt: 2 }}>
-                  {item.message3}
-                </Typography>
-
-                <Typography
-                  variant="subtitle1"
-                  sx={{ fontWeight: "bold", mt: 2 }}
+      <Card className="mb-4 shadow-lg">
+        <CardContent>
+          <Grid
+            container
+            spacing={3}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            {/* Left Side - Image */}
+            {principalImage.length > 0 ? (
+              principalImage.map((image, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  key={index}
+                  sx={{ width: "100%" }}
                 >
-                  - {item.principal}
-                </Typography>
-              </Grid>
+                  <Card sx={{ borderRadius: 2, boxShadow: 3 }}>
+                    <CardMedia
+                      component="img"
+                      image={image.Imagepath} // ✅ Corrected image path
+                      alt={`Gallery Image ${index}`}
+                      sx={{
+                        width: "100%",
+                        height: {xs:"120",
+                          sm:"200",
+                          md:"300",
+                          lg:"350",
+                        },
+                        objectFit: "cover",
+                      }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "/images/placeholder.jpg";
+                      }}
+                    />
+                  </Card>
+                </Grid>
+              ))
+            ) : (
+              <Typography>No images available</Typography>
+            )}
+
+            {/* Right Side - Principal's Message */}
+            <Grid item xs={12} md={6}>
+              <Typography variant="h5" component="h2" gutterBottom>
+                Principal's Message
+              </Typography>
+
+              <CustomAccordion text={principalMessages.message1} />
+              <CustomAccordion text={principalMessages.message2} />
+
+              <Typography variant="body1" sx={{ fontWeight: "bold", mt: 2 }}>
+                {principalMessages.message3}
+              </Typography>
+
+              <Typography
+                variant="subtitle1"
+                sx={{ fontWeight: "bold", mt: 2 }}
+              >
+                - {principalMessages.principal}
+              </Typography>
             </Grid>
-          </CardContent>
-        </Card>
-      ))}
+          </Grid>
+        </CardContent>
+      </Card>
     </div>
   );
 };
@@ -76,11 +141,6 @@ const PrincipalMessage = () => {
 // Custom Accordion Component
 const CustomAccordion = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
-
-  // Split text into lines and get first 4 lines for preview
-  const lines = text.split(", ");
-  const previewText =
-    lines.slice(0, 3).join(", ") + (lines.length > 4 ? "..." : "");
 
   return (
     <Accordion
@@ -95,9 +155,12 @@ const CustomAccordion = ({ text }) => {
         }
       >
         <Typography variant="body1" color="textSecondary">
-          {expanded ? text : previewText}
+          {expanded ? text : text.substring(0, 100) + "..."}
         </Typography>
       </AccordionSummary>
+      <AccordionDetails>
+        <Typography>{text}</Typography>
+      </AccordionDetails>
     </Accordion>
   );
 };

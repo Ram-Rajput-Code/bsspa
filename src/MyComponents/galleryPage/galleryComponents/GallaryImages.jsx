@@ -1,60 +1,76 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import token from "../../../Config/Token";
+import Backend_Url from "../../../Config/BackendUrl";
 import { Container, Grid, Card, CardMedia, Typography } from "@mui/material";
 
-const images = {
-  eyeAndDental: [
-    "/images/Eye_and_Dental/imgd1.jpeg",
-    "/images/Eye_and_Dental/imgd2.jpeg",
-    "/images/Eye_and_Dental/imgd3.jpeg",
-    "/images/Eye_and_Dental/imgd4.jpeg",
-    "/images/Eye_and_Dental/imgd5.jpeg",
-    "/images/Eye_and_Dental/imgd6.jpeg",
-    "/images/Eye_and_Dental/imgd7.jpeg",
-    "/images/Eye_and_Dental/imgd8.jpeg",
-  ],
-  eyeTestCamp: [
-    "/images/eye_test_camp/imgc1.jpeg",
-    "/images/eye_test_camp/imgc2.jpeg",
-    "/images/eye_test_camp/imgc3.jpeg",
-    "/images/eye_test_camp/imgc4.jpeg",
-    "/images/eye_test_camp/imgc5.jpeg",
-    "/images/eye_test_camp/imgc6.jpeg",
-    "/images/eye_test_camp/imgc7.jpeg",
-    "/images/eye_test_camp/imgc8.jpeg",
-  ],
-  fireMockDrill: [
-    "/images/Fire_Mock_Drill/imgmf1.jpg",
-    "/images/Fire_Mock_Drill/imgmf2.jpg",
-    "/images/Fire_Mock_Drill/imgmf3.jpg",
-    "/images/Fire_Mock_Drill/imgmf4.jpg",
-    "/images/Fire_Mock_Drill/imgmf5.jpg",
-    "/images/Fire_Mock_Drill/imgmf6.jpg",
-    "/images/Fire_Mock_Drill/imgmf7.jpg",
-    "/images/Fire_Mock_Drill/imgmf8.jpg",
-    "/images/Fire_Mock_Drill/imgmf9.jpg",
-    "/images/Fire_Mock_Drill/imgmf10.jpg",
-    "/images/Fire_Mock_Drill/imgmf11.jpg",
-  ],
-};
-
 const GalleryImages = () => {
+  const [EyeAndDental, setEyeAndDental] = useState(null);
+  const [EyeTestCamp, setEyeTestCamp] = useState(null);
+  const [FireMockDrill, setFireMockDrill] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  // Fetch images from backend
+  useEffect(() => {
+    fetch(`${Backend_Url}/gallery/images/all`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched Principal Image Data:", data);
+        if (
+          data.groupedImages &&
+          Array.isArray(data.groupedImages.GallaryImgs)
+        ) {
+          setEyeAndDental(data.groupedImages.EyeAndDental);
+          setEyeTestCamp(data.groupedImages.EyeTestCamp);
+          setFireMockDrill(data.groupedImages.FireMockDrill);
+        } else {
+          throw new Error("Invalid API response format");
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching principal image:", err);
+        setError(err.message);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <Typography>Loading image...</Typography>;
+  if (error) return <Typography color="error">Error: {error}</Typography>;
   return (
     <Container className="mt-4">
       {/* Eye and Dental Section */}
       <section className="mb-5">
-        <Typography variant="h3" style={{ textAlign: 'center', color: '#007bff', fontWeight: 'bold' }} className="mb-4">
+        <Typography
+          variant="h3"
+          style={{ textAlign: "center", color: "#007bff", fontWeight: "bold" }}
+          className="mb-4"
+        >
           Eye and Dental
         </Typography>
         <Grid container spacing={3}>
-          {images.eyeAndDental.map((src, index) => (
+          {EyeAndDental.map((image, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card className="shadow-sm" style={{ borderRadius: '3px', border: '0px solid #ccc' }}>
+              <Card
+                className="shadow-sm"
+                style={{ borderRadius: "3px", border: "0px solid #ccc" }}
+              >
                 <CardMedia
                   component="img"
                   height="200"
-                  image={src}
+                  image={image.Imagepath}
                   alt="Eye and Dental"
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                 />
               </Card>
             </Grid>
@@ -64,19 +80,26 @@ const GalleryImages = () => {
 
       {/* Eye Test Camp Section */}
       <section className="mb-5">
-        <Typography variant="h3" style={{ textAlign: 'center', color: '#28a745', fontWeight: 'bold' }} className="mb-4">
+        <Typography
+          variant="h3"
+          style={{ textAlign: "center", color: "#28a745", fontWeight: "bold" }}
+          className="mb-4"
+        >
           Eye Test Camp
         </Typography>
         <Grid container spacing={3}>
-          {images.eyeTestCamp.map((src, index) => (
+          {EyeTestCamp.map((image, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card className="shadow-sm" style={{ borderRadius: '3px', border: '0px solid #ccc' }}>
+              <Card
+                className="shadow-sm"
+                style={{ borderRadius: "3px", border: "0px solid #ccc" }}
+              >
                 <CardMedia
                   component="img"
                   height="200"
-                  image={src}
+                  image={image.Imagepath}
                   alt="Eye Test Camp"
-                  style={{ objectFit: 'cover', borderRadius: '0' }}
+                  style={{ objectFit: "cover", borderRadius: "0" }}
                 />
               </Card>
             </Grid>
@@ -86,19 +109,26 @@ const GalleryImages = () => {
 
       {/* Fire Mock Drill Section */}
       <section className="mb-5">
-        <Typography variant="h3" style={{ textAlign: 'center', color: '#dc3545', fontWeight: 'bold' }} className="mb-4">
+        <Typography
+          variant="h3"
+          style={{ textAlign: "center", color: "#dc3545", fontWeight: "bold" }}
+          className="mb-4"
+        >
           Fire Mock Drill
         </Typography>
         <Grid container spacing={3}>
-          {images.fireMockDrill.map((src, index) => (
+          {FireMockDrill.map((src, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Card className="shadow-sm" style={{ borderRadius: '3px', border: '0px solid #ccc' }}>
+              <Card
+                className="shadow-sm"
+                style={{ borderRadius: "3px", border: "0px solid #ccc" }}
+              >
                 <CardMedia
                   component="img"
                   height="200"
-                  image={src}
+                  image={src.Imagepath}
                   alt="Fire Mock Drill"
-                  style={{ objectFit: 'cover', borderRadius: '0px' }}
+                  style={{ objectFit: "cover", borderRadius: "0px" }}
                 />
               </Card>
             </Grid>

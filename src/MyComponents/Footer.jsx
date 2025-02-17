@@ -1,95 +1,85 @@
-import React from "react";
-import "./footer.css";
-import { FaSquareFacebook } from "react-icons/fa6";
-import { FaTwitter } from "react-icons/fa";
-import { FaPinterestP } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { Link } from "react-router-dom";
+
+import React, { useEffect, useState } from "react";
+import "../App.css";
+import { Box, Typography, Link, Grid, IconButton } from "@mui/material";
+import { FaSquareFacebook, FaTwitter, FaPinterestP, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import axios from "axios";
+import Backend_Url from "../Config/BackendUrl";
+import token from "../Config/Token";
+
 
 export default function Footer() {
+  const [email, setEmail] = useState([]);
+  const [address, setAddress] = useState([]);
+  
+
+  const fetchGeneral = async () => {
+    try {
+      const response = await axios.get(`${Backend_Url}/GeneralSetting/1`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = response.data;
+      setEmail(data.Email); // Assuming 'email' is part of the response object
+      setAddress(data.Address1); // Assuming 'address' is part of the response object
+  
+    } catch (error) {
+      console.error("Error fetching menu data:", error);
+    }
+  };
+  useEffect(() => {
+    fetchGeneral();
+  }, []);
   return (
-    <div class="footermain">
-      <div className="footerrow1">
-        <div>
-          <div className="footerlogo">
-            <img src="/images/logofooter.png" alt="/images/logofooter.png" />
-            <div className="ftrlogotext">
-              <span>
-                BHARAT Sevashram Sangha <br />
-              </span>
-              <span>Pranavananda Academy </span>
+    <Box sx={{ backgroundColor: "#2f2f2f", color: "white", p: 4 }}>
+      <Grid container spacing={3} justifyContent="space-between" alignItems="center">
+        {/* Logo and About Section */}
+        <Grid item xs={12} md={4} textAlign={{ xs: "center", md: "left" }}>
+          <Box display="flex" alignItems="center" justifyContent={{ xs: "center", md: "start" }}>
+            <img src="/images/logofooter.png" alt="Logo" style={{ height: 70, marginRight: 10 }} />
+            <div className="footerlogo" style={{fontSize:"0.7rem"}}>
+              BHARAT Sevashram Sangha <br /> Pranavananda Academy
             </div>
-          </div>
-          <div style={{ width: "600px" }}>
-            {/* <h5>ABOUT US</h5>  */}
-            Parnavananda Academy, run by Bharat Sevashram Sangha, with its
-            diversified academic activities in the various parts of the country
-            has come into existence into the region of RAIPUR commemorating the
-            Centenary Celebrations of Swami Pranavanandaji Maharaj
-          </div>
-        </div>
-        <div className="footerlinks">
-          <ul>
-            <li>
-              <h4 style={{ color: "white" }}> Links</h4>
-            </li>
-            <li>
-              <span> > &emsp;</span>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <span> > &emsp;</span>
-              <Link to="/admission">Admission</Link>
-            </li>
-            <li>
-              <span> > &emsp;</span>
-              <Link to="/facilities">Facilities</Link>
-            </li>
-            <li>
-              <span> > &emsp;</span>
-              <Link to="/activities">Activities</Link>
-            </li>
-            <li>
-              <span> > &emsp;</span>
-              <Link to="/contact">Contact Us</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="footeraddress">
-          <h4 style={{ color: "white" }}>Our Office</h4>
-          <p>
-            Bharat Sevashram Sangha Pranavananda Academy
-            <br />
-            VIP Road Raipur. (C.G).
-          </p>
-          bsspranavanandaacademy10@gmail.com
-          <div className="footericon">
-            <div className="col-1">
-              <FaSquareFacebook />
-            </div>
-            <div className="col-1">
-              <FaTwitter />
-            </div>
-            <div className="col-1">
-              <FaPinterestP />
-            </div>
-            <div className="col-1">
-              <FaInstagram />
-            </div>
-            <div className="col-1">
-              <FaLinkedinIn />
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div className="row" style={{ padding: "10px" }}>
-        <div className="col-11">
-          Copyrights © 2024 Bharat Sevashram Sangha Pranavananda Academy | All
-          Rights Reserved.
-        </div>
-      </div>
-    </div>
+          </Box>
+          <Typography variant="body2" mt={2} margin="auto" maxWidth={400}>
+            Pranavananda Academy, run by Bharat Sevashram Sangha, with its diversified academic activities in various parts of the country, has come into existence in Raipur commemorating the Centenary Celebrations of Swami Pranavanandaji Maharaj.
+          </Typography>
+        </Grid>
+        
+        {/* Links Section */}
+        <Grid item xs={12} md={3} textAlign={{ xs: "center", md: "left" }}>
+          <Typography variant="h6" color="orange">Links</Typography>
+          <Box display="flex" flexDirection="column" gap={1}>
+            <Link href="/about" color="inherit" underline="none">About Us</Link>
+            <Link href="/admission" color="inherit" underline="none">Admission</Link>
+            <Link href="/facilities" color="inherit" underline="none">Facilities</Link>
+            <Link href="/activities" color="inherit" underline="none">Activities</Link>
+            <Link href="/contact" color="inherit" underline="none">Contact Us</Link>
+          </Box>
+        </Grid>
+        
+        {/* Contact Section */}
+        <Grid item xs={12} md={4} textAlign={{ xs: "center", md: "left" }}>
+          <Typography variant="h6" color="orange">Our Office</Typography>
+          <Typography variant="body2">
+            Bharat Sevashram Sangha Pranavananda Academy<br />
+            {/* VIP Road, Raipur (C.G) */}
+            {address || "loading..."}
+          </Typography>
+          <Typography variant="body2">{email || "Loading..."}</Typography>
+          <Box display="flex" justifyContent={{ xs: "center", md: "start" }} gap={1} mt={2}>
+            <IconButton color="inherit"><FaSquareFacebook /></IconButton>
+            <IconButton color="inherit"><FaTwitter /></IconButton>
+            <IconButton color="inherit"><FaPinterestP /></IconButton>
+            <IconButton color="inherit"><FaInstagram /></IconButton>
+            <IconButton color="inherit"><FaLinkedinIn /></IconButton>
+          </Box>
+        </Grid>
+      </Grid>
+      
+      {/* Footer Bottom */}
+      <Box textAlign="center" mt={3} pt={2} borderTop={1} borderColor="gray">
+        <Typography variant="body2">Copyrights © 2024 Bharat Sevashram Sangha Pranavananda Academy | All Rights Reserved.</Typography>
+      </Box>
+    </Box>
   );
 }

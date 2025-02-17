@@ -4,7 +4,6 @@ import Footer from "./MyComponents/Footer.jsx";
 import Contact from "./MyComponents/Contact.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Gallery from "./MyComponents/Gallery.jsx";
 import Activities from "./MyComponents/Activities.jsx";
 import Test from "./MyComponents/Test.jsx";
 import HomePage from "./MyComponents/homePage/HomePage.jsx";
@@ -13,6 +12,8 @@ import AboutPage from "./MyComponents/aboutPage/AboutPage.jsx";
 import FacilitiesPage from "./MyComponents/facilitiesPage/FacilitiesPage.jsx";
 import AdmissionPage from "./MyComponents/admissionPage/AdmissionPage.jsx";
 import PageNotFound from "./MyComponents/PageNotFound.jsx";
+import Gallery from "./MyComponents/galleryPage/Gallery.jsx";
+
 
 const router = createBrowserRouter([
   {

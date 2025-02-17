@@ -1,92 +1,107 @@
-import React from 'react';
-import './contact.css';
+import React from "react";
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  TextField,
+  Button,
+  Paper,
+  Card,
+  CardContent,
+} from "@mui/material";
 
 const Contact = () => {
   return (
+    <><Box mb={3}>
+    <img
+      src="/images/principal-message-banner.jpg"
+      alt="Principal Message"
+      width="100%"
+      
+    />
+  </Box>
+    <Container maxWidth="lg" sx={{ py: 4, bgcolor: "whitesmoke" }}>
+      
 
-    <>
+      <Typography variant="h4" align="center" gutterBottom>
+        Contact Us
+      </Typography>
 
-      <div className='myclass' style={{ backgroundColor: 'whitesmoke'}}>
-        <hr />
+      <Grid container spacing={4} justifyContent="center">
+        <Grid item xs={12}>
+          <Paper sx={{ border: "1px solid", overflow: "hidden" }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.101183130066!2d81.72516341441958!3d21.188139087695216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c37a659e0e85%3A0x9471f51d1f031fe7!2sBSS+Pranavananda+Academy!5e0!3m2!1sen!2sin!4v1464244894150"
+              width="100%"
+              height="290"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </Paper>
+        </Grid>
+      </Grid>
 
-        <div className="row" style={{width:"100%"}}>
-          <div className="col-12" style={{padding:"0"}}>
-            <img src="/images/principal-message-banner.jpg" alt="" width={'100%'}  />
-          </div>
-        </div>
-        <div class="row" style={{width:"100%"}}>
+      <Grid container spacing={4} mt={4} justifyContent="center">
+        <Grid item xs={12} md={6}>
+          <Card elevation={3} sx={{ p: 3 }}>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                Send Us a Message
+              </Typography>
+              <Box component="form" noValidate autoComplete="off">
+                <TextField
+                  fullWidth
+                  label="First Name"
+                  variant="outlined"
+                  margin="normal"
+                />
+                <TextField
+                  fullWidth
+                  label="Mobile"
+                  variant="outlined"
+                  margin="normal"
+                />
+                <TextField
+                  fullWidth
+                  label="Message"
+                  variant="outlined"
+                  multiline
+                  rows={3}
+                  margin="normal"
+                />
+                <Button variant="contained" color="primary" fullWidth>
+                  Submit
+                </Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
 
-          <h1 align="center" class="ui-title-page" style={{padding:"0"}}>
-            Contact Us
-          </h1>
-          <br />
-          <br />
-
-
-
-
-          <div class="col-12">
-            <div class="section_map" style={{ border: '1px solid' }}>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.101183130066!2d81.72516341441958!3d21.188139087695216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c37a659e0e85%3A0x9471f51d1f031fe7!2sBSS+Pranavananda+Academy!5e0!3m2!1sen!2sin!4v1464244894150" width="100%" height="290" frameborder="0" ></iframe>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-        <section class="section_contacts-form">
-          <div class="contactrow1">
-
-            <div class="contactform">
-              <h2>Send <strong>Us Message</strong></h2>
-
-              <form class="row g-3 needs-validation" novalidate style={{ border: '1px solid blue', marginTop: '20px', marginBottom: '20px', borderRadius: '5px' }}>
-                <div class="col-md-4">
-                  <label for="validationCustom01" class="form-label">First name</label>
-                  <input type="text" class="form-control" id="validationCustom01" value="Enter your name" required />
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="validationCustom02" class="form-label">Mobile</label>
-                  <input type="text" class="form-control" id="validationCustom02" value="Enter mobile number" required />
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                
-                
-                <div class="mb-3">
-                  <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-
-                <div class="col-12" style={{ marginBottom: '10px' }}>
-                  <button class="btn btn-primary" type="submit">Submit form</button>
-                </div>
-              </form>
-            </div>
-            <div className="contactaddress">
-              <h2 style={{ padding: '5px' }}> <strong> Get in Touch with us</strong></h2>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary" style={{ padding: '50px', borderRadius: '5px' }}>
-
-
-                <b>LOCATION :</b> Bharat Sevashram Sangha Pranavananda Academy VIP Road Raipur. (C.G) <br /> <br />
-                <b>PHONE :</b> 07712971219, 07712971220 <br /> <br />
-                <b>EMAIL :</b> bsspranavanandaacademy10@gmail.com <br />
-              </a>
-            </div>
-
-
-
-
-          </div>
-        </section>
-
-      </div>
+        <Grid item xs={12} md={6}>
+          <Card elevation={3} sx={{ p: 3 }}>
+            <CardContent>
+              <Typography variant="h5" gutterBottom>
+                Get in Touch with Us
+              </Typography>
+              <Typography variant="body1" paragraph>
+                <strong>LOCATION:</strong> Bharat Sevashram Sangha Pranavananda
+                Academy VIP Road Raipur. (C.G)
+              </Typography>
+              <Typography variant="body1" paragraph>
+                <strong>PHONE:</strong> 07712971219, 07712971220
+              </Typography>
+              <Typography variant="body1" sx={{fontSize:"0.8rem"}}>
+                <strong >EMAIL:</strong> bsspranavanandaacademy10@gmail.com
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Container>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

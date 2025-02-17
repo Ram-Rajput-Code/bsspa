@@ -42,3 +42,11 @@
  
   height: 0px !important;
 }
+
+/* my custom css for footer rj */
+.footerlogo {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-family: 'Algerian', sans-serif;
+}
