@@ -1,6 +1,7 @@
 .background-image {
   position: relative;
-  background-image: url("/public/images/body4bg.jpg");
+  background-image: url("/public/images/body4bg.jpg"); 
+
   background-size: cover;
   background-position: center;
   height: 300px;

@@ -7,7 +7,6 @@
   background-size: cover;
   background-position: center;
   height: fit-content;
-
 }
 
 .mybtn {
@@ -43,8 +42,6 @@
 .mytextdiv:hover {
   background-color: #03438f;
   color: #fdfdfd;
-
-
 }
 
 .icon {
@@ -53,14 +50,11 @@
 }
 
 .mytextdiv:hover .icon {
-
   color: #f57d28;
-
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .body3row1 {
     flex-wrap: wrap;
   }
-
 }
